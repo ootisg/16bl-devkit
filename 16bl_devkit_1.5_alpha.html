@@ -1,0 +1,2916 @@
+<html>
+<body>
+	<p id="debug"></p>
+	<div align="center" id="toolbar"> <img id="gameTool" onClick="doGameTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/Android_L/PNG/32/Media_Controls/play-32.png" alt="Game Tool" title="Game Tool"> <img id="codeTool" onClick="doCodeTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Programming/property_script-32.png" alt="Code Tool" title="Code Tool"> <img id="spriteTool" onClick="doSpriteTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Editing/xlarge_icons-32.png" alt="Sprite Tool" title="Sprite Tool"> <img id="paletteTool" onClick="doPaletteTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/Android_L/PNG/32/Editing/paint_palette-32.png" alt="Palette Tool" title="Palette Tool"> <img id="musicTool" onClick="doMusicTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Very_Basic/music-32.png" alt="Music Tool" title="Music Tool"> <img id="waveformTool" onClick="doWaveformTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/iOS7/PNG/32/Science/sine-32.png" alt="Waveform Tool" title="Waveform Tool"> <img id="fileTool" onClick="doFileTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/iOS7/PNG/32/Very_Basic/opened_folder_filled-32.png" alt="File Tool" title="File Viewer"> <img id="shareTool" onClick="doShareTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/Android_L/PNG/32/Very_Basic/share-32.png" alt="Share Tool" title="Share Tool">
+		<hr> </div>
+	<br>
+	<div align="center" id="toolbar2"> <img id="playTool" onClick="doPlayTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/Android_L/PNG/32/Media_Controls/play-32.png" alt="Play Tool" title="Play Tool"><img id="drawTool" onClick="doDrawTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/iOS7/PNG/32/Editing/pencil_filled-32.png" alt="Draw Tool" title="Draw Tool"> <img id="eraseTool" onClick="doEraseTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows8/PNG/32/Editing/eraser-32.png" alt="Erase Tool" title="Erase Tool"> <img id="resizeTool" onClick="doResizeTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Editing/resize-32.png" alt="Resize Tool" title="Resize Tool"> <img id="sliderThresholdTool" onClick="doSliderThresholdTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows8/PNG/32/Industry/electrical_threshold-32.png" alt="Slider Threshold Tool" title="Threshold Color Slider"> <img id="selectWaveformTool" onClick="doSelectWaveformTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/iOS7/PNG/32/Science/sine-32.png" alt="Select Waveform Tool" title="Select Waveform Tool"> <img id="saveTool" onClick="doSaveTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/Android_L/PNG/32/Programming/save-32.png" alt="Save Tool" title="Save Tool"> <img id="loadTool" onClick="doLoadTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Very_Basic/opened_folder-32.png" alt="Load Tool" title="Load Tool"> <img id="importTool" onClick="doImportTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Data/import-32.png" alt="Import Tool" title="Import Tool"> <img id="exportTool" onClick="doExportTool()" style="border:1px dotted black" src="https://maxcdn.icons8.com/windows10/PNG/32/Data/export-32.png" alt="Export Tool" title="Export Tool"></div>
+	<br>
+	<div align="center" id="displayElement" style="display:">
+		<canvas id="displayCanvas" onClick="doClick(event)" width="640" height="480" tabindex="0" style="border:1px solid black"></canvas>
+		<br> </div>
+	<br>
+	<div align="center" id="colorSelector" style="display:none"> <p id="paletteHead"></p>
+		<br> <img id="selectPalette" onClick="doSelectPalette()" src="https://maxcdn.icons8.com/Android_L/PNG/32/Editing/paint_palette-32.png" alt="Set Palette" style="border:1px dotted black">
+		<canvas id="paletteCanvas" onClick="clickPaletteCanvas(event)" width="480" height="32" style="border:1px solid black"></canvas> <img id="binaryImage" onClick="doBinaryImage()" src="https://maxcdn.icons8.com/windows10/PNG/32/Very_Basic/cancel-32.png" alt="Binary Image" style="border:1px dotted black"> </div>
+	<br>
+	<div align="center" id="codeInput" style="display:none"> ENTER CODE BELOW
+		<br>
+		<textarea id="inputWindow" rows="32" cols="64"></textarea>
+	</div>
+	<div id="icons" style="display:none">
+		<img id="backIcon" src="https://maxcdn.icons8.com/windows8/PNG/32/Arrows/undo-32.png" alt="Back Icon"><img id="upIcon" src="https://maxcdn.icons8.com/windows8/PNG/48/Arrows/up_arrow-48.png" alt="Up Icon"><img id="downIcon" src="https://maxcdn.icons8.com/windows8/PNG/48/Arrows/down_arrow-48.png" alt="Down Icon"><img id="upIcon32" src="https://maxcdn.icons8.com/windows8/PNG/32/Arrows/up_arrow-32.png" alt="Up Icon 32px"><img id="downIcon32" src="https://maxcdn.icons8.com/windows8/PNG/32/Arrows/down_arrow-32.png" alt="Down Icon 32px"><img id="leftIcon" src="https://maxcdn.icons8.com/windows8/PNG/32/Arrows/left_arrow-32.png" alt="Left Icon"><img id="rightIcon" src="https://maxcdn.icons8.com/windows8/PNG/32/Arrows/right_arrow-32.png" alt="Right Icon"><img id="volumeIcon" src="https://maxcdn.icons8.com/windows8/PNG/32/Media_Controls/volume_up-32.png" alt="Volume Icon"><img id="instrumentIcon" src="https://maxcdn.icons8.com/windows10/PNG/32/Music/violin-32.png" alt="Instrument Icon"><img id="tempoIcon" src="https://maxcdn.icons8.com/windows10/PNG/32/Science/speed-32.png" alt="Tempo Icon"><img id="lineIcon" src="https://maxcdn.icons8.com/windows10/PNG/32/Editing/line-32.png" alt="Line Icon"><img id="noiseIcon" src="https://maxcdn.icons8.com/windows10/PNG/32/Music/audio_wave2-32.png" alt="Noise Icon"><img id="settingsIcon" id="settingsIcon" src="https://maxcdn.icons8.com/Android_L/PNG/32/Very_Basic/settings-32.png" alt="Settings Icon">
+	</div><br>
+	<div id="technical">
+		<audio id="musicAudio" src="" autoplay="true" loop="true" style="display:none"></audio>
+		<audio id="effectsAudio" src="" autoplay="true" style="display:none"></audio>
+	</div>
+	<script>
+		//All-purpose variables
+		var toolSelected;
+		var tool2Selected;
+		var canvasPos;
+		var cursorX;
+		var cursorY;
+		var keys_pressed = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		var storage = localStorage;
+		//Toolbar variables
+		var gameTool = document.getElementById("gameTool");
+		var codeTool = document.getElementById("codeTool");
+		var spriteTool = document.getElementById("spriteTool");
+		var paletteTool = document.getElementById("paletteTool");
+		var musicTool = document.getElementById("musicTool");
+		var waveformTool = document.getElementById("waveformTool");
+		var fileTool = document.getElementById("fileTool");
+		var shareTool = document.getElementById("shareTool");
+		var playTool = document.getElementById("playTool");
+		var drawTool = document.getElementById("drawTool");
+		var eraseTool = document.getElementById("eraseTool");
+		var sliderThresholdTool = document.getElementById("sliderThresholdTool");
+		var resizeTool = document.getElementById("resizeTool");
+		var selectWaveformTool = document.getElementById("selectWaveformTool");
+		var saveTool = document.getElementById("saveTool");
+		var loadTool = document.getElementById("loadTool");
+		var importTool = document.getElementById("importTool");
+		var exportTool = document.getElementById("exportTool");
+		var selectPalette = document.getElementById("selectPalette");
+		var binaryImage = document.getElementById("binaryImage");
+		var backIcon = document.getElementById("backIcon");
+		var upIcon = document.getElementById("upIcon");
+		var downIcon = document.getElementById("downIcon");
+		var upIcon32 = document.getElementById("upIcon32");
+		var downIcon32 = document.getElementById ("downIcon32");
+		var leftIcon = document.getElementById ("leftIcon");
+		var rightIcon = document.getElementById ("rightIcon");
+		var volumeIcon = document.getElementById("volumeIcon");
+		var instrumentIcon = document.getElementById ("instrumentIcon");
+		var tempoIcon = document.getElementById ("tempoIcon");
+		var lineIcon = document.getElementById ("lineIcon");
+		var noiseIcon = document.getElementById ("noiseIcon");
+		var settingsIcon = document.getElementById ("settingsIcon");
+		//HTML elements
+		var displayElement = document.getElementById("displayElement");
+		var displayCanvas = document.getElementById("displayCanvas");
+		var colorSelector = document.getElementById("colorSelector");
+		var paletteCanvas = document.getElementById("paletteCanvas");
+		var codeInput = document.getElementById("codeInput");
+		var inputWindow = document.getElementById("inputWindow");
+		var paletteHead = document.getElementById("paletteHead");
+		var displayContext = displayCanvas.getContext("2d");
+		var paletteContext = paletteCanvas.getContext("2d");
+		//Display variables
+		var imgData = displayContext.createImageData(640, 480);
+		clearImageBuffer();
+		updateCanvas();
+		//Sprite editor variables
+		var backColor = 0xFFFF;
+		var imageSize = 8;
+		var selectedColor = 1;
+		var spriteType = 0;
+		var spriteSize = 0;
+		var zoom = 16;
+		//Game engine variables
+		var note0 = 0;
+		var note1 = 1;
+		var note2 = 2;
+		var note3 = 3;
+		var dataDuration = 127;
+		var waveTo = 0;
+		var waveSlope = 0;
+		var waveOffset = 0;
+		var debugString = "";
+		var usedVolume = 0;
+		var powmod = 0;
+		var usedWavelength = 0;
+		var mpalettePointer = 0;
+		var channelMod = 0;
+		var timesplayed = 0;
+		var instruments = 0;
+		var effectData = 0;
+		var effectPrm1 = 0;
+		var effectPrm2 = 0;
+		var effectId = 0;
+		var x = 0;
+		var y = 0;
+		var code = "";
+		var fileString = "";
+		var exec_pos = -1;
+		var backup_pos = 0;
+		var x_reg = 0;
+		var result_cmp = 0;
+		var arg1 = 0;
+		var arg2 = 0;
+		var arg3 = 0;
+		var arg4 = 0;
+		var accumulator = 0;
+		var flag_relative = 0;
+		var flag_relativex = 0;
+		var flag_negative = 0;
+		var flag_execFromRam = 0;
+		var val = 0;
+		var opcode_id = 0;
+		var i = 0;
+		var c = 0;
+		var m = 0;
+		var sprtype = 0;
+		var sprsize = 0;
+		var sprite_pointer = 0;
+		var res = 0;
+		var usedByte = 0;
+		var fileId = 0;
+		var absolute_pos = 0;
+		var cycle_finished = 1;
+		var file_array = new Array(256);
+		var lengthCounter = 0;
+		var heightCounter = 0;
+		var noise = 0;
+		var endFlag = 0;
+		var octave = [4, 4];
+		var instrument = 0;
+		var instrumentList = [0, 0];
+		var readPos = 0;
+		var writePos = 0;
+		var nibble = 0;
+		var semitone = 0;
+		var channels = 1;
+		var volume = 127;
+		var volumeList = [127, 127];
+		var effectList = [0, 0, 0, 0];
+		var tempoArray = [];
+		var volumeArray = [];
+		var channelSync = 0;
+		var waveType = [0, 0, 0, 0, 0, 0];
+		var effectArray = [];
+		var base64Key = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/"];
+		var base64String = "";
+		var toDecodeArray = [0, 0, 0];
+		var notes = [];
+		var pcmdata = [];
+		var note = 0;
+		var p = 0;
+		var wavedata = "";
+		var tempo = 1;
+		var wavelength = 0;
+		var wavelengtharray = [0, 0, 0, 0];
+		var wavelengthtimes2 = 0;
+		var duration;
+		var waveform = [[127, 162, 187, 212, 237, 250, 255, 248, 241, 234, 228, 222, 215, 208, 200, 192, 182, 172, 160, 150, 136, 130, 116, 102, 85, 80, 85, 96, 110, 120, 127, 129, 131, 135, 142, 149, 162, 165, 154, 141, 123, 121, 117, 109, 99, 89, 79, 69, 59, 49, 39, 29, 19, 9, 0, 0, 4, 14, 28, 48, 68, 88, 108, 127], [36, 64, 92, 120, 148, 176, 204, 232, 250, 253, 255, 253, 250, 244, 238, 232, 226, 220, 216, 213, 211, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 210, 208, 205, 200, 194, 185, 173, 159, 139, 119, 99, 79, 63, 50, 42, 32, 24, 20, 18, 18, 20, 24, 24, 12, 4, 0, 8, 18, 36]];
+		var musicAudio = document.getElementById("musicAudio");
+		var effectsAudio = document.getElementById("effectsAudio");
+		for (i = 0; i != 256; i += 1) {
+			file_array[i] = [];
+		};
+		var main_array = new Array(65536);
+		function main(a) {
+			//Returns a byte from the main code array
+			if (flag_execFromRam == 0) {
+				return main_array[a];
+			} else {
+				if (a & 1 == 1) {
+					return ram[absolute_pos + (a >> 1)] & 0xFF;
+				} else {
+					return (ram[absolute_pos + (a >> 1)] & 0xFF00) >> 8;
+				};
+			};
+		};
+		var ram = [];
+		var sprite = [];
+		var sprites = [];
+		var selectedPalette = [0x0000, 0x001F, 0x03E0, 0x03FF, 0x7C00, 0x7C1F, 0x7FE0, 0x7FFF, 0x0000, 0x0008, 0x0100, 0x0108, 0x2000, 0x2008, 0x2100, 0x2108];
+		var imageDataArray = [[0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+		//Share tool variables
+		var storage = localStorage;
+		var hexKey = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+		//File editor variables
+		var workingDirectory;
+		var selectedIndex = 0;
+		var pageStack = [0];
+		//Audio editor variables
+		var workingAudio = [];
+		var workingNotes = [];
+		var workingChanges = [[[-1, -1, -1, -1]],[[-1, -1, -1, -1]],[[0, -1, -1, -1]]];
+		var workingTempo = 2;
+		var noteNames = ["G#", "G", "F#", "F", "E", "D#", "D", "C#", "C", "B", "A#", "A"];
+		var workingOctave = 4;
+		var octavePrevious = [4, 4, 4, 4];
+		var viewedPage = 0;
+		var selectedNote = 0;
+		var selectedIcon = 0;
+		var numChannels = 4;
+		//Waveform editor variables
+		waveformDataArray = [127, 162, 187, 212, 237, 250, 255, 248, 241, 234, 228, 222, 215, 208, 200, 192, 182, 172, 160, 150, 136, 130, 116, 102, 85, 80, 85, 96, 110, 120, 127, 129, 131, 135, 142, 149, 162, 165, 154, 141, 123, 121, 117, 109, 99, 89, 79, 69, 59, 49, 39, 29, 19, 9, 0, 0, 4, 14, 28, 48, 68, 88, 108, 127];
+		//Palette editor variables
+		workingPalette = [0x0000, 0x001F, 0x03E0, 0x03FF, 0x7C00, 0x7C1F, 0x7FE0, 0x7FFF, 0x0000, 0x0008, 0x0100, 0x0108, 0x2000, 0x2008, 0x2100, 0x2108];
+		var workingColor = 0;
+		var adjustColors = true;
+		//Compiler variables
+		var compilerFunctions = ["END", "LDA", "STA", "LDX", "STX", "CMP", "BEQ", "BNE", "BGT", "BLT", "ADD", "SBC", "MLT", "DIV", "MOD", "AND", "IOR", "XOR", "BSL", "BSR", "SSP", "DSP", "MPL", "KEY", "JMP", "FLR", "FLW", "EXE", "TAX", "TXA", "PSD", "RPC"];
+		var compilerFunctionLengths = [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 6, 3, 2, 3, 9, 9, 3, 1, 1, 3, 1];
+		var compilerArgumentLengths = [[0], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [2], [1], [1], [2], [1, 2, 2], [2], [1], [2], [2, 2, 2, 2], [2, 2, 2, 2], [2], [0], [0], [2], [0]];
+		var codeString = "";
+		doGameTool();
+		//File engine variables
+		function GameFile(name, type) {
+			//Object for files
+			this.name = name;
+			this.type = type;
+			this.data = "";
+			this.dataLength = 0;
+			this.isFolder = false;
+		}
+		function GameFolder(name) {
+			//Object for folders
+			this.name = name;
+			this.contents = [];
+			this.isFolder = true;
+		}
+		function FileShell() {
+			//Object used for fileFrame
+			this.path = "";
+			this.byteFrom = 0;
+			this.byteTo = 0;
+		}
+		var folderStack = [];
+		var indexStack = [];
+		var fileFrame = [];
+		//Setting the value in localStorage to its default if this is the first time this is used
+		if (storage.getItem ("project") == null) {
+			storage.setItem ("project", "B3Byb2plY3T+BGNvZGUABG1haW4AAP/+B29iamVjdHP//gdzcHJpdGVzAQxjaGVja2VyYm9hcmQACKpVqlWqVapV//4FYXVkaW///w");
+		}
+		//Initializing the root folder project
+		var project = importFolder (storage.getItem ("project"));
+		workingDirectory = [project];
+		//Main GUI functions
+		buildFileFrame();
+		//Show and hide are pretty self-explanitory
+		function show(element) {
+			element.style.display = "";
+		}
+		function hide(element) {
+			element.style.display = "none";
+		}
+		function clearToolSelect() {
+			//Deselects all elements in the toolbar
+			gameTool.style.border = "1px dotted black";
+			codeTool.style.border = "1px dotted black";
+			spriteTool.style.border = "1px dotted black";
+			paletteTool.style.border = "1px dotted black";
+			musicTool.style.border = "1px dotted black";
+			waveformTool.style.border = "1px dotted black";
+			fileTool.style.border = "1px dotted black";
+			shareTool.style.border = "1px dotted black";
+		}
+		function clearTool2Select() {
+			//Deselects all the elements in the sub-toolbar
+			playTool.style.border = "1px dotted black";
+			drawTool.style.border = "1px dotted black";
+			eraseTool.style.border = "1px dotted black";
+			selectWaveformTool.style.border = "1px dotted black";
+			saveTool.style.border = "1px dotted black";
+			loadTool.style.border = "1px dotted black";
+			importTool.style.border = "1px dotted black";
+			exportTool.style.border = "1px dotted black";
+		}
+		function hideTools() {
+			//Hides all the elements in the sub-toolbar
+			hide(playTool);
+			hide(drawTool);
+			hide(eraseTool);
+			hide(resizeTool);
+			hide(sliderThresholdTool);
+			hide(selectWaveformTool);
+			hide(saveTool);
+			hide(loadTool);
+			hide(importTool);
+			hide(exportTool);
+		}
+		//do...Tool functions are called for their respective tools in the toolbar and sub-toolbar
+		function doGameTool() {
+			clearToolSelect();
+			gameTool.style.border = "1px solid black";
+			show(displayElement);
+			hide(colorSelector);
+			hide(codeInput);
+			hideTools();
+			show(playTool);
+			toolSelected = 0;
+			clearImageBuffer();
+			updateCanvas();
+		}
+		function doCodeTool() {
+			clearToolSelect();
+			codeTool.style.border = "1px solid black";
+			hide(displayElement);
+			hide(colorSelector);
+			show(codeInput);
+			hideTools();
+			show(saveTool);
+			show(loadTool);
+			toolSelected = 1;
+		}
+		function doSpriteTool() {
+			clearToolSelect();
+			spriteTool.style.border = "1px solid black";
+			document.getElementById ("paletteHead").innerHTML = "COLOR SELECTOR";
+			show(displayElement);
+			show(colorSelector);
+			show(selectPalette);
+			show(binaryImage);
+			hide(codeInput);
+			hideTools();
+			show(drawTool);
+			show(eraseTool);
+			show(resizeTool);
+			show(saveTool);
+			show(loadTool);
+			toolSelected = 2;
+			drawImageData();
+			updateCanvas();
+			updatePaletteCanvas();
+		}
+		function doPaletteTool() {
+			clearToolSelect();
+			paletteTool.style.border = "1px solid black";
+			show(displayElement);
+			hide(colorSelector);
+			hide(codeInput);
+			hideTools();
+			show(sliderThresholdTool);
+			show(saveTool);
+			show(loadTool);
+			toolSelected = 3;
+			drawPaletteGUI();
+			updateCanvas();
+		}
+		function doMusicTool() {
+			clearToolSelect();
+			musicTool.style.border = "1px solid black";
+			document.getElementById ("paletteHead").innerHTML = "SOUND EDITOR TOOLBAR";
+			show(displayElement);
+			show(colorSelector);
+			hide(selectPalette);
+			hide(binaryImage);
+			hide(codeInput);
+			hideTools();
+			show(playTool);
+			show(selectWaveformTool);
+			show(saveTool);
+			show(loadTool);
+			toolSelected = 4;
+			drawAudioGUI ();
+			updatePaletteCanvas ();
+		}
+		function doWaveformTool() {
+			clearToolSelect();
+			waveformTool.style.border = "1px solid black";
+			show(displayElement);
+			hide(colorSelector);
+			hide(codeInput);
+			hideTools();
+			show(saveTool);
+			show(loadTool);
+			toolSelected = 5;
+			clearImageBuffer();
+			updateCanvas();
+		}
+		function doFileTool() {
+			clearToolSelect();
+			fileTool.style.border = "1px solid black";
+			show(displayElement);
+			hide(colorSelector);
+			hide(codeInput);
+			hideTools();
+			toolSelected = 6;
+			clearImageBuffer();
+			updateCanvas();
+			drawFileGUI();
+		}
+		function doShareTool() {
+			clearToolSelect();
+			shareTool.style.border = "1px solid black";
+			show(displayElement);
+			hide(colorSelector);
+			hide(codeInput);
+			hideTools();
+			show(importTool);
+			show(exportTool);
+			toolSelected = 7;
+			drawShareGUI ();
+		}
+		function doPlayTool() {
+			//Starts the game
+			playTool.style.border = "1px solid black";
+			if (toolSelected == 0) {
+				buildFiles();
+				importCode(compile(hexToString (project.contents[0].contents[0].data), true));
+			} else {
+				octavePrevious = [4, 4, 4, 4];
+				workingAudio = [];
+				var audioString = "";
+				audioString += encodeHex (0x40 | (numChannels - 1));
+				audioString += "01";
+				for (var i = 0; i < 32; i ++) {
+					audioString += "FF";
+				}
+				for (var i = 0; i < 32; i ++) {
+					audioString += "00";
+				}
+				for (var i = 0; i < numChannels; i ++) {
+					audioString += "00";
+					audioString += "7F";
+				}
+				for (var i = 0; i < workingNotes.length; i ++) {
+					for (var c = 0; c < numChannels; c ++) {
+						if (workingNotes [i][c] != 0) {
+						if (Math.floor ((workingNotes [i][c] - 79)) / 12 != octavePrevious [c]) {
+							audioString += "C" + Math.floor ((workingNotes [i][c] - 79) / 12).toString (16).toUpperCase ();
+							octavePrevious [c] = Math.floor ((workingNotes [i][c] - 79) / 12);
+							}
+						audioString += ((workingNotes [i][c] - 79) % 12).toString (16).toUpperCase ();
+						} else {
+							audioString += "F1";
+						}
+					}
+				}
+				audioString += "FF";
+				if (audioString.length % 2 == 1) {
+					audioString += "0";
+				}
+				for (var i = 0; i < audioString.length; i += 2) {
+					workingAudio.push (fromHexString (audioString.substr (i, 2)));
+				}
+				psd (false, true);
+			}
+			playTool.style.border = "1px dotted black";
+		}
+		function doDrawTool() {
+			//Switches to drawing in the sprite editor
+			clearTool2Select();
+			drawTool.style.border = "1px solid black";
+			tool2selected = 2;
+		}
+		function doEraseTool() {
+			//Switches to erasing in the sprite editor
+			clearTool2Select();
+			eraseTool.style.border = "1px solid black";
+			tool2selected = 3;
+		}
+		function doResizeTool() {
+			//Resizes the field in the sprite editor
+			if (resizeTool.style.border == "1px dotted black") {
+				resizeTool.style.border = "1px solid black";
+				imageSize = 16;
+				spriteSize = 1;
+				drawImageData();
+				updateCanvas();
+			} else {
+				resizeTool.style.border = "1px dotted black";
+				imageSize = 8;
+				spriteSize = 0;
+				drawImageData();
+				updateCanvas();
+			}
+		}
+		function doSliderThresholdTool() {
+			//Toggles the thresholding for the palette slider bar
+			//Also, palette is spelled wrong almost everywhere in this code
+			if (adjustColors == false) {
+				sliderThresholdTool.style.border = "1px dotted black";
+				adjustColors = true;
+			} else {
+				sliderThresholdTool.style.border = "1px solid black";
+				adjustColors = false;
+			}
+			drawPaletteGUI();
+			updateCanvas();
+		}
+		function doSelectWaveformTool() {
+			//Doesn't do anything yet (and needs to be removed along with all references to it)
+			clearTool2Select();
+			selectWaveformTool.style.border = "1px solid black";
+			tool2selected = 4;
+		}
+		function doSaveTool() {
+			//Saves files
+			saveTool.style.border = "1px solid black";
+			if (toolSelected == 1) {
+				var fileName = prompt("Please enter a name for this code", "");
+				var folderPath = prompt("Please enter the filepath for this code", "project/");
+				if (getFileByName(fileName, getFileFromPath(folderPath)) == undefined) {
+					var fileToSave = new GameFile(fileName, 0);
+					addFileToFolder(fileToSave, getFileFromPath(folderPath));
+				}
+				fileToSave = getFileByName(fileName, getFileFromPath(folderPath));
+				fileToSave.data = stringToHex (inputWindow.value);
+				fileToSave.dataLength = compile(inputWindow.value, false).length / 2;
+			}
+			if (toolSelected == 2) {
+				var fileName = prompt("Please enter a name for this sprite", "");
+				var folderPath = prompt("Please enter the filepath for this sprite", "project/");
+				if (getFileByName(fileName, getFileFromPath(folderPath)) == undefined) {
+					var fileToSave = new GameFile(fileName, 1);
+					addFileToFolder(fileToSave, getFileFromPath(folderPath));
+				}
+				fileToSave = getFileByName(fileName, getFileFromPath(folderPath));
+				if (spriteType == 0) {
+					fileToSave.data = encodeSpriteMpalette(imageDataArray[spriteType + spriteSize]);
+				} else {
+					fileToSave.data = encodeSpriteBinary(imageDataArray[spriteType + spriteSize]);
+				}
+				fileToSave.dataLength = fileToSave.data.length / 2;
+			}
+			if (toolSelected == 3) {
+				var fileName = prompt("Please enter a name for this palette", "");
+				var folderPath = prompt("Please enter the filepath for this palette", "project/");
+				if (getFileByName(fileName, getFileFromPath(folderPath)) == undefined) {
+					var fileToSave = new GameFile(fileName, 2);
+					addFileToFolder(fileToSave, getFileFromPath(folderPath));
+				}
+				fileToSave = getFileByName(fileName, getFileFromPath(folderPath));
+				fileToSave.data = encodePalette(workingPalette);
+				fileToSave.dataLength = fileToSave.data.length / 2;
+			}
+			if (toolSelected == 4) {
+				var fileName = prompt("Please enter a name for this song", "");
+				var folderPath = prompt("Please enter the filepath for this song", "project/");
+				if (getFileByName(fileName, getFileFromPath(folderPath)) == undefined) {
+					var fileToSave = new GameFile(fileName, 3);
+					addFileToFolder(fileToSave, getFileFromPath(folderPath));
+				}
+				fileToSave = getFileByName(fileName, getFileFromPath(folderPath));
+				var audioString = "";
+				audioString += encodeHex (0x08 | (numChannels - 1));
+				audioString += "01";
+				for (var i = 0; i < 32; i ++) {
+					audioString += "FF";
+				}
+				for (var i = 0; i < 32; i ++) {
+					audioString += "00";
+				}
+				for (var i = 0; i < numChannels; i ++) {
+					audioString += "00";
+					audioString += "7F";
+				}
+				for (var i = 0; i < workingNotes.length; i ++) {
+					for (var c = 0; c < numChannels; c ++) {
+						if (workingNotes [i][c] != 0) {
+						if (Math.floor ((workingNotes [i][c] - 79) / 12) != octavePrevious [c]) {
+							audioString += "C" + Math.floor ((workingNotes [i][c] - 79) / 12).toString (16).toUpperCase ();
+							octavePrevious [c] = Math.floor ((workingNotes [i][c] - 79) / 12);
+							}
+						audioString += ((workingNotes [i][c] - 79) % 12).toString (16).toUpperCase ();
+						} else {
+							audioString += "F1";
+						}
+					}
+				}
+				audioString += "FF";
+				fileToSave.data = audioString;
+				fileToSave.dataLength = fileToSave.data.length / 2;
+			}
+			storage.setItem ("project", buildFolder (project));
+			buildFileFrame();
+			saveTool.style.border = "1px dotted black";
+			alert ("Your file was sucessfully saved!")
+		}
+		function doLoadTool() {
+			//Loads files
+			clearTool2Select();
+			loadTool.style.border = "1px solid black";
+			var promptResult = prompt("What is your file path?", "");
+			if (getFileFromPath(promptResult) != undefined) {
+				if (toolSelected == 1 && getFileFromPath(promptResult).type == 0) {
+					inputWindow.value = hexToString (getFileFromPath(promptResult).data);
+				}
+				if (toolSelected == 2 && getFileFromPath(promptResult).type == 1) {
+					if (spriteType == 0) {
+						imageDataArray[spriteSize + spriteType] = decodeSpriteMpalette(getFileFromPath(promptResult).data);
+					} else {
+						imageDataArray[spriteSize + spriteType] = decodeSpriteBinary(getFileFromPath(promptResult).data);
+					}
+					drawImageData();
+				}
+				if (toolSelected == 3 && getFileFromPath(promptResult).type == 2) {
+					workingPalette = importPalette(getFileFromPath(promptResult).data);
+					drawPaletteGUI();
+				}
+				if (toolSelected == 4 && getFileFromPath(promptResult).type == 3) {
+					workingAudio = [];
+					audioString = getFileFromPath (promptResult).data;
+					if (audioString.length % 2 == 1) {
+						audioString += "0";
+					}
+					for (var i = 0; i < audioString.length; i += 2) {
+						workingAudio.push (fromHexString (audioString.substr (i, 2)));
+					}
+					workingAudio = psd (false, false);
+					numChannels = (fromHexChar (audioString.charAt (1)) & 0x3) + 1;
+					for (var i = 0; i < workingAudio.length; i ++) {
+						if (i % numChannels == 0) {
+							workingNotes [Math.floor (i / numChannels)] = [0, 0, 0, 0];
+						}
+						workingNotes [Math.floor (i / numChannels)][i % numChannels] = workingAudio [i];
+                    }
+				}
+			}
+			drawAudioGUI();
+			loadTool.style.border = "1px dotted black";
+			tool2selected = 6;
+		}
+		function doImportTool() {
+			//Shows a menu from which you can import files, folders, hex, or even another project
+			clearTool2Select();
+			importTool.style.border = "1px solid black";
+			tool2selected = 7;
+			drawShareGUI ();
+		}
+		function doExportTool() {
+			//Shows a menu from which you can export files, folders, or even the entire project
+			clearTool2Select();
+			exportTool.style.border = "1px solid black";
+			tool2selected = 8;
+			drawShareGUI ();
+		}
+		function doSelectPalette() {
+			//For selecting a palette to use in the sprite editor
+			clearTool2Select();
+			selectPalette.style.border = "1px solid black";
+			var paletteFile = getFileFromPath (prompt("What is the path to your palette?", "project/"));
+			if (paletteFile != "undefined") {
+				selectedPalette = importPalette(paletteFile.data);
+			} else {
+				alert ("That file doesn't exist!")
+			}
+			drawImageData();
+			updateCanvas();
+			updatePaletteCanvas();
+		}
+		function doBinaryImage() {
+			//Toggles editing binary images
+			if (binaryImage.style.border == "1px dotted black") {
+				binaryImage.style.border = "1px solid black";
+				spriteType = 2;
+				drawImageData();
+				updateCanvas();
+				updatePaletteCanvas();
+			} else {
+				binaryImage.style.border = "1px dotted black";
+				spriteType = 0;
+				drawImageData();
+				updateCanvas();
+				updatePaletteCanvas();
+			}
+		}
+		function doClick(event) {
+			//Called when you click on the canvas
+			canvasPos = displayCanvas.getBoundingClientRect();
+			cursorX = event.clientX - canvasPos.left;
+			cursorY = event.clientY - canvasPos.top;
+			if (toolSelected == 2) {
+				//If the sprite editor is selected
+				if (tool2selected == 2 || tool2selected == 3) {
+					doEditSprite();
+				}
+				drawImageData();
+				updateCanvas();
+				updatePaletteCanvas();
+			}
+			if (toolSelected == 3) {
+				//If the palette editor is selected
+				doClickPaletteGUI(cursorX, cursorY);
+				drawPaletteGUI();
+			}
+			if (toolSelected == 4) {
+				//If the music editor (not finished) is selected
+				doClickAudioGUI(cursorX, cursorY);
+				drawAudioGUI();
+			}
+			if (toolSelected == 5) {
+				//If the waveform editor (not finished) is selected
+				doClickWaveformGUI(cursorX, cursorY);
+				drawWaveformGUI();
+			}
+			if (toolSelected == 6) {
+				//If the file viewer is selected
+				doClickFileGUI(cursorX, cursorY);
+				drawFileGUI();
+			}
+			if (toolSelected == 7) {
+				//If the share tool is selected
+				doClickShareGUI(cursorY);
+				drawShareGUI();
+			}
+		}
+		function clickPaletteCanvas(event) {
+			//This is for clicking the little canvas toolbar thing at the bottom of the sprite editor and audio editor
+			if (toolSelected == 2) {
+				if (spriteType == 0) {
+					canvasPos = paletteCanvas.getBoundingClientRect();
+					cursorX = event.clientX - canvasPos.left;
+					selectedColor = Math.floor(cursorX / 32) + 1;
+				}
+			} else if (toolSelected == 4) {
+				canvasPos = paletteCanvas.getBoundingClientRect();
+				cursorX = event.clientX - canvasPos.left;
+				if (cursorX <= 128) {
+					selectedNote = Math.floor (cursorX / 32);
+					if (selectedNote > numChannels - 1) {
+						selectedNote = numChannels - 1;
+					}
+				} else if (cursorX <= 416) {
+					selectedIcon = Math.floor (cursorX / 32) - 4;
+				} else if (cursorX > 416) {
+					switch (Math.floor (cursorX / 32) - 13) {
+						case 0:
+							var tempChannels = numChannels;
+							tempChannels = prompt ("The current number of channels is " + numChannels + ". What should the new number of channels be?");
+							if (tempChannels != undefined) {
+								tempChannels = parseInt (tempChannels, 10);
+								while (tempChannels < 1 || tempChannels > 4 || isNaN (tempChannels)) {
+									alert ("That is not a valid number of channels!")
+									tempChannels = parseInt (prompt ("The current number of channels is " + numChannels + ". What should the new number of channels be?"));
+								}
+								if (!isNaN (tempChannels)) {
+									alert ("The number of channels was successfully updated!");
+								}
+							}
+							numChannels = tempChannels;
+							if (selectedNote >= numChannels) {
+								selectedNote = numChannels - 1;
+								updatePaletteCanvas ();
+							}
+							break;
+						case 1:
+							workingOctave ++;
+							if (workingOctave > 8) {
+								workingOctave = 8;
+							}
+							break;
+						case 2:
+							workingOctave --;
+							if (workingOctave < 0) {
+								workingOctave = 0;
+							}
+							break;
+						case 3:
+							viewedPage --;
+							if (viewedPage < 0) {
+								viewedPage = 0;
+							}
+							break;
+						case 4:
+							viewedPage ++;
+							break;
+					}
+				}
+				drawAudioGUI ();
+			}
+			updatePaletteCanvas ();
+		}
+		displayCanvas.addEventListener("keydown", function(e) {
+			//For detecting keystrokes
+			keys_pressed[e.keyCode] = 1;
+			if (toolSelected == 6) {
+				doKeypressFileGUI(e.keyCode);
+				drawFileGUI();
+			}
+		});
+		displayCanvas.addEventListener("keyup", function(e) {
+			//Also for detecting keystrokes
+			keys_pressed[e.keyCode] = 0;
+		});
+		function updateCanvas() {
+			//Updates the image buffer onto the canvas
+			displayContext.putImageData(imgData, 0, 0);
+		}
+		function updatePaletteCanvas() {
+			//Updates the little canvas toolbar thing at the bottom of the sprite and audio editors
+			paletteContext.fillStyle = "#FFFFFF";
+			paletteContext.fillRect (0, 0, 512, 32);
+			if (toolSelected == 2) {
+				document.getElementById ("paletteCanvas").width = 480;
+				paletteContext = paletteCanvas.getContext ("2d");
+				if (spriteType == 0) {
+					for (var i = 0; i < 16; i++) {
+						paletteContext.fillStyle = toHtmlColor(selectedPalette[i + 1]);
+						paletteContext.fillRect(i * 32, 0, 32, 32);
+					}
+					drawPaletteOutline (selectedColor * 32 - 32, 0);
+				} else {
+					paletteContext.fillStyle = toHtmlColor(selectedPalette[0]);
+					paletteContext.fillRect(0, 0, 480, 32);
+				}
+			} else if (toolSelected == 4) {
+				document.getElementById ("paletteCanvas").width = 576;
+				paletteContext = paletteCanvas.getContext ("2d");
+				paletteContext.fillStyle = "#FF0000";
+				paletteContext.fillRect (0, 0, 32, 32);
+				paletteContext.fillStyle = "#00FF00";
+				paletteContext.fillRect (32, 0, 32, 32);
+				paletteContext.fillStyle = "#0000FF";
+				paletteContext.fillRect (64, 0, 32, 32);
+				paletteContext.fillStyle = "#FFFF00";
+				paletteContext.fillRect (96, 0, 32, 32);
+				drawPaletteOutline (selectedNote * 32, 0);
+				drawPaletteOutline (selectedIcon * 32 + 128, 0);
+				paletteContext.drawImage (drawTool, 128, 0);
+				paletteContext.drawImage (volumeIcon, 160, 0);
+				paletteContext.drawImage (instrumentIcon, 192, 0);
+				paletteContext.drawImage (tempoIcon, 224, 0);
+				paletteContext.drawImage (lineIcon, 256, 0);
+				paletteContext.drawImage (volumeIcon, 260, 3, 12, 12);
+				paletteContext.drawImage (lineIcon, 288, 0);
+				paletteContext.drawImage (musicTool, 291, 2, 14, 14);
+				paletteContext.drawImage (waveformTool, 320, 0);
+				paletteContext.drawImage (volumeIcon, 336, 2, 12, 12);
+				paletteContext.drawImage (waveformTool, 352, 0);
+				paletteContext.drawImage (musicTool, 368, 1, 14, 14);
+				paletteContext.drawImage (noiseIcon, 384, 0);
+				paletteContext.drawImage (settingsIcon, 416, 0);
+				paletteContext.drawImage (upIcon32, 448, 0);
+				paletteContext.drawImage (downIcon32, 480, 0);
+				paletteContext.drawImage (leftIcon, 512, 0);
+				paletteContext.drawImage (rightIcon, 544, 0);
+			}
+		}
+		function drawPaletteOutline (x, y) {
+			//Draws an outline on the toolbar at the bottom of the sprite and audio editors
+			paletteContext.fillStyle = "#000000";
+			paletteContext.fillRect (x, y, 32, 1);
+			paletteContext.fillRect (x, y + 31, 32, 1);
+			paletteContext.fillRect (x, y, 1, 32);
+			paletteContext.fillRect (x + 31, y, 1, 32);
+		}
+		function clearImageBuffer() {
+			//Clears the image buffer
+			for (var i = 0; i < 1228800; i++) {
+				imgData.data[i] = 0xFF;
+			}
+		}
+		function doEditSprite() {
+			//For when you click on the sprite editor
+			if (cursorX < zoom * imageSize && cursorY < zoom * imageSize) {
+				if (tool2selected == 3) {
+					imageDataArray[spriteSize + spriteType][Math.floor(cursorY / zoom) * imageSize + Math.floor(cursorX / zoom)] = 0;
+				} else if (spriteType == 0) {
+					imageDataArray[spriteSize + spriteType][Math.floor(cursorY / zoom) * imageSize + Math.floor(cursorX / zoom)] = selectedColor;
+				} else {
+					imageDataArray[spriteSize + spriteType][Math.floor(cursorY / zoom) * imageSize + Math.floor(cursorX / zoom)] = 16;
+				}
+			}
+		}
+		function getFileFromPath(filePath) {
+			//Returns a file or folder located at the given file path (must end in /), returns "undefined" if the file does not exist
+			var usedPath = "";
+			var parsedPath = [];
+			var parsedCount = 0;
+			for (var i = 0; i < filePath.length; i++) {
+				if (filePath.charAt(i) != "/") {
+					usedPath += filePath.charAt(i);
+				} else {
+					parsedPath[parsedCount] = usedPath;
+					parsedCount++;
+					usedPath = "";
+				}
+			}
+			var toCheck = project;
+			var nameCheck = parsedPath[1];
+			var checkIndex = 0;
+			var indentionLevel = 2;
+			if (parsedPath[0] == "project") {
+				while (checkIndex != -1) {
+					if (toCheck.isFolder == false || toCheck.name == parsedPath [parsedPath.length - 1]) {
+						return toCheck;
+					}
+					if (checkIndex > toCheck.contents.length - 1) {
+						return "undefined";
+					} else {
+						if (toCheck.contents[checkIndex].name == nameCheck) {
+							toCheck = toCheck.contents[checkIndex];
+							nameCheck = parsedPath[indentionLevel];
+							indentionLevel++;
+							checkIndex = 0;
+						} else {
+							checkIndex++;
+						}
+					}
+				}
+			} else {
+				return "undefined";
+			}
+			return toCheck;
+		}
+		function addFileToFolder(file, folder) {
+			//Adds a file to a folder
+			if (checkFolderForName(file.name, folder) == -1) {
+				folder.contents[folder.contents.length] = file;
+			}
+		}
+		function addFolderToFolder(name, folder) {
+			//Adds a folder to a folder
+			if (checkFolderForName(name, folder) == -1) {
+				folder.contents[folder.contents.length] = new GameFolder(name);
+			}
+		}
+		function checkFolderForName(name, folder) {
+			//Checks if a folder already contains a file or folder of a given name
+			for (var i = 0; i < folder.contents.length; i++) {
+				if (name == folder.contents[i].name) {
+					return i;
+				}
+			}
+			return -1;
+		}
+		function getFileByName(name, folder) {
+			//Retrieves a file with a given name from a folder
+			var fileIndex = checkFolderForName(name, folder);
+			if (fileIndex != -1) {
+				return folder.contents[fileIndex];
+			} else {
+				return undefined;
+			}
+		}
+		function buildFileFrame() {
+			//Builds fileFrame (a linear data structure consisting of fileShells)
+			//Used for locating files while compiling code
+			var bundleFinished;
+			fileFrame = [];
+			folderStack = [];
+			indexStack = [];
+			var usedPath = "";
+			var usedLength = 0;
+			var usedShell = new FileShell();
+			for (var i = 0; i < project.contents.length; i++) {
+				bundleFinished = false;
+				usedLength = 0;
+				if (project.contents.length > 0 && project.contents[i].contents.length > 0) {
+					folderStack.push(project.contents[i]);
+					indexStack.push(0);
+					while (!bundleFinished) {
+						if (indexStack[indexStack.length - 1] >= folderStack[folderStack.length - 1].contents.length) {
+							usedPath = "project/";
+							for (var c = 0; c < folderStack.length; c++) {
+								usedPath += folderStack[c].name + "/";
+							}
+							for (var c = 0; c < fileFrame.length; c++) {
+								if (fileFrame[c].path == usedPath) {
+									fileFrame[c].byteTo = usedLength;
+								}
+							}
+							folderStack.pop();
+							indexStack.pop();
+						} else {
+							if (folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].isFolder == true) {
+								folderStack.push(folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]]);
+								indexStack.push(-1);
+								usedPath = "project/";
+								for (var c = 0; c < folderStack.length; c++) {
+									usedPath += folderStack[c].name + "/";
+								}
+								usedShell = new FileShell();
+								usedShell.path = usedPath;
+								usedShell.byteFrom = usedLength;
+								fileFrame.push(usedShell);
+							} else {
+								usedPath = "project/";
+								for (var c = 0; c < folderStack.length; c++) {
+									usedPath += folderStack[c].name + "/";
+								}
+								usedPath += folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].name + "/";
+								usedShell = new FileShell();
+								usedShell.path = usedPath;
+								usedShell.byteFrom = usedLength;
+								usedLength += folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].dataLength;
+								usedShell.byteTo = usedLength;
+								fileFrame.push(usedShell);
+							}
+						}
+						indexStack[indexStack.length - 1] ++;
+						if (folderStack.length == 0) {
+							bundleFinished = true;
+						}
+					}
+				}
+			}
+		}
+		function buildFiles() {
+			//Builds the project folder into a list of files (A 64KB limit needs to be added here)
+			var bundleFinished;
+			folderStack = [];
+			indexStack = [];
+			var usedLength = 0;
+			var fileHex = "";
+			var usedShell = new FileShell();
+			for (var i = 0; i < project.contents.length; i++) {
+				bundleFinished = false;
+				fileHex = "";
+				if (project.contents.length > 0 && project.contents[i].contents.length > 0) {
+					folderStack.push(project.contents[i]);
+					indexStack.push(0);
+					while (!bundleFinished) {
+						if (indexStack[indexStack.length - 1] >= folderStack[folderStack.length - 1].contents.length) {
+							folderStack.pop();
+							indexStack.pop();
+						} else {
+							if (folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].isFolder == true) {
+								folderStack.push(folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]]);
+								indexStack.push(-1);
+							} else {
+								if (folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].type == 0) {
+									fileHex += compile(hexToString (folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].data), true);
+								} else {
+									fileHex += folderStack[folderStack.length - 1].contents[indexStack[indexStack.length - 1]].data;
+								}
+							}
+						}
+						indexStack[indexStack.length - 1] ++;
+						if (folderStack.length == 0) {
+							for (var c = 0; c < fileHex.length; c += 2) {
+								file_array[i][c / 2] = fromHexString(fileHex.substr(c, 2));
+							}
+							bundleFinished = true;
+						}
+					}
+				}
+			}
+		}
+		function drawRectangle(x, y, width, height, rgb) {
+			//Draws a rectangle on the display canvas buffer of a given x and y coordinate, height, and color of 15-bit RGB format
+			var red = Math.floor(255 / 31 * ((rgb & 0x7C00) >> 10));
+			var green = Math.floor(255 / 31 * ((rgb & 0x3E0) >> 5));
+			var blue = Math.floor(255 / 31 * (rgb & 0x1F));
+			for (var heightCounter = 0; heightCounter < height; heightCounter++) {
+				for (var lengthCounter = 0; lengthCounter < width; lengthCounter++) {
+					if (lengthCounter + x <= 639 && heightCounter + y <= 479) {
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4] = red;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 1] = green;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 2] = blue;
+					}
+				}
+			}
+		}
+		function drawOutline(x, y, width, height, rgb) {
+			//Draws a rectangular outline on the display canvas buffer of a given x and y coordinate, height, and color of 15-bit RGB format
+			var red = Math.floor(255 / 31 * ((rgb & 0x7C00) >> 10));
+			var green = Math.floor(255 / 31 * ((rgb & 0x3E0) >> 5));
+			var blue = Math.floor(255 / 31 * (rgb & 0x1F));
+			for (var heightCounter = 0; heightCounter < height; heightCounter += height - 1) {
+				for (var lengthCounter = 0; lengthCounter < width; lengthCounter++) {
+					if (lengthCounter + x <= 639 && heightCounter + y <= 479) {
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4] = red;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 1] = green;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 2] = blue;
+					}
+				}
+			}
+			for (var heightCounter = 0; heightCounter < height; heightCounter++) {
+				for (var lengthCounter = 0; lengthCounter < width; lengthCounter += width - 1) {
+					if (lengthCounter + x <= 639 && heightCounter + y <= 479) {
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4] = red;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 1] = green;
+						imgData.data[(heightCounter + y) * 2560 + (lengthCounter + x) * 4 + 2] = blue;
+					}
+				}
+			}
+		}
+		function drawHLine(y) {
+			//Draws a black horizontal line accross the display canvas buffer at a given y position
+			for (var i = 0; i < 640; i ++) {
+				imgData.data[y * 2560 + i * 4] = 0x00;
+				imgData.data[y * 2560 + i * 4 + 1] = 0x00;
+				imgData.data[y * 2560 + i * 4 + 2] = 0x00;
+			}
+		}
+		function drawVLine(x) {
+			//Draws a black vertical line accross the display canvas buffer at a given x position
+			for (var i = 0; i < 480; i ++) {
+				imgData.data[i * 2560 + x * 4] = 0x00;
+				imgData.data[i * 2560 + x * 4 + 1] = 0x00;
+				imgData.data[i * 2560 + x * 4 + 2] = 0x00;
+			}
+		}
+		function toHtmlColor(rgb) {
+			//Converts a 15-bit RGB color value to a 24-bit RGB html color code
+			var red = Math.floor(255 / 31 * ((rgb & 0x7C00) >> 10)).toString(16);
+			var green = Math.floor(255 / 31 * ((rgb & 0x3E0) >> 5)).toString(16);
+			var blue = Math.floor(255 / 31 * (rgb & 0x1F)).toString(16);
+			if (red.length == 1) {
+				red = "0" + red;
+			}
+			if (green.length == 1) {
+				green = "0" + green;
+			}
+			if (blue.length == 1) {
+				blue = "0" + blue;
+			}
+			return ("#" + red + green + blue);
+		}
+		//Share tool functions
+		function drawShareGUI () {
+			//Draws the GUI for the share tool
+			clearImageBuffer ();
+			updateCanvas ();
+			displayContext.fillStyle = "#000000";
+			displayContext.font = "32px Arial";
+			displayContext.textBaseline = "top";
+			if (tool2selected == 7) {
+				for (var t = 0; t < 4; t ++) {
+					displayContext.drawImage (importTool, 0, t * 48 + 8)
+				}
+				displayContext.fillText ("Import project", 44, 8);
+				displayContext.fillText ("Import folder from share code", 44, 52)
+				displayContext.fillText ("Import file from share code", 44, 100);
+				displayContext.fillText ("Import file from hex", 44, 148);
+			} else if (tool2selected == 8) {
+				for (var t = 0; t < 3; t ++) {
+					displayContext.drawImage (exportTool, 0, t * 48 + 8)
+				}
+				displayContext.fillText ("Export project", 44, 8);
+				displayContext.fillText ("Export folder", 44, 52);
+				displayContext.fillText ("Export file", 44, 100);
+			}
+		}
+		function doClickShareGUI (clickY) {
+			//Handles click events for the display canvas while the share tool is selected
+			if (tool2selected == 7) {
+				switch (Math.floor (clickY / 48)) {
+					case 0:
+						var input = prompt ("Please enter your share code", "");
+						if (input != undefined && input != "") {
+							project = importFolder (input);
+						}
+						workingDirectory = [project];
+						storage.setItem ("project", buildFolder (project));
+						buildFileFrame();
+						alert ("Your project was successfully imported");
+						break;
+					case 1:
+						var input = prompt ("What is the path you will save the folder to?", "");
+						if (input != undefined && input != "") {
+							usedFolder = prompt ("Please enter your share code", "");
+							if (usedFolder != undefined && usedFolder != "") {
+								usedFolder = importFolder (usedFolder);
+								if (getFileFromPath (input) != "undefined") {
+									if (getFileFromPath (input).isFolder) {
+										if (checkFolderForName (usedFolder.name, getFileFromPath (input)) == -1) {
+											addFolderToFolder (usedFolder.name, getFileFromPath (input));
+										}
+										getFileFromPath (input).contents [checkFolderForName (usedFolder.name, getFileFromPath (input))] = usedFolder;
+										storage.setItem ("project", buildFolder (project));
+										buildFileFrame();
+										alert ("Your folder was successfully imported");
+									}
+								}
+							}
+						}
+						break;
+					case 2:
+						var input = prompt ("What is the path you will save the file to?", "");
+						if (input != undefined && input != "") {
+							usedFolder = prompt ("Please enter your share code", "");
+							if (usedFolder != undefined && usedFolder != "") {
+								usedFolder = importFile (usedFolder);
+								if (getFileFromPath (input) != "undefined") {
+									if (getFileFromPath (input).isFolder) {
+										if (checkFolderForName (usedFolder.name, getFileFromPath (input)) == -1) {
+											addFolderToFolder (usedFolder.name, getFileFromPath (input));
+										}
+										getFileFromPath (input).contents [checkFolderForName (usedFolder.name, getFileFromPath (input))] = usedFolder;
+										storage.setItem ("project", buildFolder (project));
+										buildFileFrame();
+										alert ("Your file was successfully imported");
+									}
+								}
+							}
+						}
+						break;
+					case 3:
+						var input = prompt ("What is the path you will save the file to?", "");
+						if (input != undefined && input != "") {
+							usedFolder = prompt ("What is the file hex?", "");
+							usedName = prompt ("What is the file name?", "");
+							type = ["Code", "Sprite", "Palette", "Audio", "Waveform"].indexOf (prompt ("What is the file type?", "Sprite"));
+							if (type == -1) {
+								alert ("Error: invalid file type");
+							} else if (usedFolder != undefined && usedFolder != "" && usedName != undefined) {
+								usedFolder = importFileFromHex (usedFolder, usedName, type);
+								if (getFileFromPath (input) != "undefined") {
+									if (getFileFromPath (input).isFolder) {
+										if (checkFolderForName (usedFolder.name, getFileFromPath (input)) == -1) {
+											addFolderToFolder (usedFolder.name, getFileFromPath (input));
+										}
+										getFileFromPath (input).contents [checkFolderForName (usedFolder.name, getFileFromPath (input))] = usedFolder;
+										storage.setItem ("project", buildFolder (project));
+										buildFileFrame();
+										alert ("Your file was successfully imported");
+									}
+								}
+							}
+						}
+						break;
+				}
+			} else if (tool2selected == 8) {
+				switch (Math.floor (clickY / 48)) {
+					case 0:
+						prompt ("Here is your share code:", buildFolder (project));
+						break;
+					case 1:
+						var usedFolder = getFileFromPath (prompt ("What is the folder path?", ""));
+						if (usedFolder.isFolder && usedFolder != "undefined") {
+							prompt ("Here is your share code:", buildFolder (usedFolder));
+						} else {
+							alert ("That folder doesn't exist!");
+						}
+						break;
+					case 2:
+						var usedFile = getFileFromPath (prompt ("What is the file path?", ""));
+						if (!usedFile.isFolder && usedFile != "undefined") {
+							prompt ("Here is your share code:", buildFile (usedFile));
+						} else {
+							alert ("That file doesn't exist!");
+						}
+						break;
+				}
+			}
+		}
+		function encodeHex(byte) {
+			//Encodes a real byte to a hexadecimal string
+			var encodedHex = byte.toString(16).toUpperCase();
+			if (encodedHex.length == 1) {
+				encodedHex = "0" + encodedHex;
+			}
+			return encodedHex;
+		}
+		function encodeShort(short) {
+			//Encodes a real short to a hexidecimal string
+			var encodedHex = short.toString(16).toUpperCase();
+			while (encodedHex.length < 4) {
+				encodedHex = "0" + encodedHex;
+			}
+			return encodedHex;
+		}
+		function stringToHex(str) {
+			//Encodes an ASCII string to a hexidecimal string
+			var encodedString = "";
+			for (var c = 0; c < str.length; c++) {
+				encodedString += encodeHex (str.charCodeAt (c));
+			}
+			return encodedString;
+		}
+		function hexToString(hex) {
+			//Decodes a hexadecimal string to an ASCII string
+			var encodedString = "";
+			for (var c = 0; c < hex.length; c += 2) {
+				encodedString += String.fromCharCode (fromHexString (hex.substr (c, 2)));
+			}
+			return encodedString;
+		}
+		function encodeBase64(input) {
+			//Encodes a hexadecimal string to a base64 string
+			inputLength = input.length;
+			var newstring = "";
+			for (var i = 0; i < inputLength; i++) {
+				if (input.charAt(i) != " ") {
+					newstring += input.charAt(i);
+				}
+			}
+			input = newstring;
+			inputLength = input.length;
+			var output = "";
+			var base64CharVal = "";
+			var inputLength = input.length;
+			var hexDigits = [];
+			if (inputLength % 3 == 0 && inputLength != 0) {
+				for (var i = 0; i < inputLength; i += 3) {
+					hexDigits[0] = hexKey.indexOf(input.charAt(i));
+					hexDigits[1] = hexKey.indexOf(input.charAt(i + 1));
+					hexDigits[2] = hexKey.indexOf(input.charAt(i + 2));
+					base64CharVal = (hexDigits[0] << 2) + ((hexDigits[1] & 0xC) >> 2);
+					output += base64Key[base64CharVal];
+					base64CharVal = ((hexDigits[1] & 0x3) << 4) + hexDigits[2];
+					output += base64Key[base64CharVal];
+				}
+			} else {
+				return undefined;
+			}
+			return output;
+		}
+		function decodeBase64(input) {
+			//Decodes a base64 string to a hexadecimal string
+			var output = "";
+			var inputLength = input.length;
+			var base64Digits = [];
+			if (inputLength % 2 == 0 && inputLength != 0) {
+				for (var i = 0; i < inputLength; i += 2) {
+					base64Digits[0] = base64Key.indexOf(input.charAt(i));
+					base64Digits[1] = base64Key.indexOf(input.charAt(i + 1));
+					output += hexKey[(base64Digits[0] & 0x3C) >> 2] + hexKey[((base64Digits[0] & 0x3) << 2) + ((base64Digits[1] & 0x30) >> 4)] + hexKey[base64Digits[1] & 0xF];
+				}
+			} else {
+				return undefined;
+			}
+			return output;
+		}
+		function encodeFile(gameFile) {
+			//Encodes a file to hexadecimal
+			var encodedHex = "";
+			if (gameFile.isFolder == true) {
+				encodedHex += "FE";
+				encodedHex += encodeHex(gameFile.name.length);
+				encodedHex += stringToHex(gameFile.name);
+			} else {
+				encodedHex += encodeHex (gameFile.type);
+				encodedHex += encodeHex(gameFile.name.length);
+				encodedHex += stringToHex(gameFile.name);
+				encodeShort (0);
+				encodedHex += encodeShort(gameFile.data.length / 2);
+				encodedHex += gameFile.data;
+			}
+			return encodedHex;
+		}
+		function buildFolder(gameFolder) {
+			//Encodes a GameFolder into a base64 string
+			var folderHex = encodeHex (gameFolder.name.length);
+			folderHex += stringToHex (gameFolder.name);
+			if (gameFolder.contents.length != 0) {
+				folderStack = [gameFolder];
+				indexStack = [0];
+				while (folderStack.length > 0) {
+					if (indexStack [indexStack.length - 1] < folderStack [folderStack.length - 1].contents.length) {
+						folderHex += encodeFile (folderStack [folderStack.length - 1].contents [indexStack [indexStack.length - 1]]);
+						if (folderStack [folderStack.length - 1].contents [indexStack [indexStack.length - 1]].isFolder == true) {
+							folderStack.push (folderStack [folderStack.length - 1].contents [indexStack [indexStack.length - 1]]);
+							indexStack.push (0);
+						} else {
+							indexStack [indexStack.length - 1] ++;
+						}
+					} else {
+						folderHex += "FF";
+						folderStack.pop ();
+						indexStack.pop ();
+						indexStack [indexStack.length - 1] ++;
+					}
+				}
+			}
+			while (folderHex.length % 3 != 0) {
+				folderHex += "0";
+			}
+			return encodeBase64 (folderHex);
+		}
+		function importFolder(folderHex) {
+			//Returns a folder decoded from a given base64 string
+			folderHex = decodeBase64 (folderHex);
+			usedFolder = new GameFolder (hexToString (folderHex.substr (2, fromHexString (folderHex.substr (0, 2)) * 2)));
+			var folderStack = [usedFolder];
+			var indexStack = [0];
+			var stringIndex = fromHexString (folderHex.substr (0, 2)) * 2 + 2;
+			while (folderStack.length != 0 && stringIndex <= folderHex.length) {
+				var fileType = fromHexString (folderHex.substr (stringIndex, 2));
+				stringIndex += 2;
+				if (fileType == 0xFE) {
+					var newFolder = new GameFolder (hexToString (folderHex.substr (stringIndex + 2, fromHexString (folderHex.substr (stringIndex, 2)) * 2)));
+					stringIndex += fromHexString (folderHex.substr (stringIndex, 2)) * 2 + 2;
+					folderStack [folderStack.length - 1].contents.push (newFolder);
+					folderStack.push (newFolder);
+					indexStack.push (0);
+				} else if (fileType == 0xFF) {
+					folderStack.pop ();
+					indexStack.pop ();
+				} else {
+					folderStack [folderStack.length - 1].contents.push (new GameFile (hexToString (folderHex.substr (stringIndex + 2, fromHexString (folderHex.substr (stringIndex, 2)) * 2)), fileType));
+					stringIndex += fromHexString (folderHex.substr (stringIndex, 2)) * 2 + 2;
+					folderStack [folderStack.length - 1].contents [folderStack [folderStack.length - 1].contents.length - 1].data = folderHex.substr (stringIndex + 4, fromHexString (folderHex.substr (stringIndex, 4)) * 2);
+					if (fileType == 0) {
+						folderStack [folderStack.length - 1].contents [folderStack [folderStack.length - 1].contents.length - 1].dataLength = compile(hexToString (folderStack [folderStack.length - 1].contents [folderStack [folderStack.length - 1].contents.length - 1].data), false).length / 2;
+					} else {
+						folderStack [folderStack.length - 1].contents [folderStack [folderStack.length - 1].contents.length - 1].dataLength = fromHexString (folderHex.substr (stringIndex, 4));
+					}
+					stringIndex += fromHexString (folderHex.substr (stringIndex, 4)) * 2 + 4;
+				}
+				indexStack [indexStack.length - 1] += 1;
+			}
+			return usedFolder;
+		}
+		function buildFile (gameFile) {
+		//Encodes a game file to a base64 string
+			if (!gameFile.isFolder) {
+				var fileHex = encodeHex (gameFile.type);
+				fileHex += encodeHex (gameFile.name.length);
+				fileHex += stringToHex (gameFile.name);
+				fileHex += encodeShort (gameFile.dataLength);
+				fileHex += gameFile.data;
+				while (fileHex.length % 3 != 0) {
+					fileHex = "0" + fileHex;
+				}
+				return encodeBase64 (fileHex);
+			} else {
+				return undefined;
+			}
+		}
+		function importFile (fileHex) {
+			//Returns a file decoded from a base64 string
+			fileHex = decodeBase64 (fileHex);
+			var usedFile = new GameFile (hexToString (fileHex.substr (4, fromHexString (fileHex.substr (2, 2)) * 2)), fromHexString (fileHex.substr (0, 2)));
+			usedFile.dataLength = fromHexString (fileHex.substr (fromHexString (fileHex.substr (2, 2)) * 2 + 4, 4));
+			usedFile.data = fileHex.substr (fromHexString (fileHex.substr (2, 2)) * 2 + 8, usedFile.dataLength * 2);
+			if (usedFile.type == 0) {
+				usedFile.dataLength = compile(usedFile.data, false).length / 2;
+			}
+			return usedFile;
+		}
+		function importFileFromHex (fileHex, name, type) {
+			//Imports a file from a hex string
+			if (fileHex.length % 2 == 0) {
+				var usedFile = new GameFile (name, type);
+				usedFile.dataLength = fileHex.length / 2;
+				usedFile.data = fileHex;
+				return usedFile;
+			} else {
+				return "undefined";
+			}
+		}
+		//File viewer functions
+		function drawFileGUI() {
+			//Draws the file viewer GUI
+			var usedDirectory = workingDirectory[workingDirectory.length - 1];
+			var filePath = "";
+			clearImageBuffer();
+			if (usedDirectory.contents.length > 0) {
+				drawOutline(0, (selectedIndex - pageStack[pageStack.length - 1] * 9) * 48 + 48, 640, 48, 0);
+			}
+			drawOutline(0, 0, 48, 48, 0);
+			drawOutline(48, 0, 48, 48, 0);
+			drawOutline(96, 0, 48, 48, 0);
+			drawOutline(144, 0, 496, 48, 0)
+			drawOutline(0, 48, 640, 432, 0)
+			updateCanvas();
+			displayContext.drawImage(backIcon, 8, 8);
+			displayContext.drawImage(upIcon, 48, 0);
+			displayContext.drawImage(downIcon, 96, 0);
+			displayContext.textBaseline = "top";
+			displayContext.font = "30px Arial";
+			displayContext.fillStyle = "#000000";
+			for (var i = 0; i < workingDirectory.length; i++) {
+				filePath += workingDirectory[i].name + "/";
+			}
+			if (usedDirectory.contents.length > 0) {
+				filePath += usedDirectory.contents[selectedIndex].name + "/";
+			}
+			displayContext.fillText(filePath, 152, 6);
+			for (var i = 0; i < usedDirectory.contents.length - pageStack[pageStack.length - 1] * 9 && i < 9; i++) {
+				if (usedDirectory.contents[pageStack[pageStack.length - 1] * 9 + i].isFolder == true) {
+					displayContext.drawImage(fileTool, 8, i * 48 + 56);
+				} else {
+					switch (usedDirectory.contents[pageStack[pageStack.length - 1] * 9 + i].type) {
+						case 0:
+							displayContext.drawImage(codeTool, 8, i * 48 + 56);
+							break;
+						case 1:
+							displayContext.drawImage(spriteTool, 8, i * 48 + 56);
+							break;
+						case 2:
+							displayContext.drawImage(paletteTool, 8, i * 48 + 56);
+							break;
+						case 3:
+							displayContext.drawImage(musicTool, 8, i * 48 + 56);
+							break;
+						case 4:
+							displayContext.drawImage(waveTool, 8, i * 48 + 56);
+							break;
+					}
+				}
+				displayContext.fillText(usedDirectory.contents[pageStack[pageStack.length - 1] * 9 + i].name, 54, i * 48 + 54);
+			}
+		}
+		function doClickFileGUI(clickX, clickY) {
+			//Handles click events for the display canvas when the file viewer tool is selected
+			var usedDirectory = workingDirectory[workingDirectory.length - 1];
+			if (clickY > 48) {
+				clickY -= 48;
+				if (selectedIndex == Math.floor(clickY / 48) + pageStack[pageStack.length - 1] * 9 && usedDirectory.contents[selectedIndex].isFolder == true) {
+					workingDirectory.push(usedDirectory.contents[selectedIndex]);
+					pageStack.push(0);
+					pageStack[pageStack.length - 1] = 0;
+					selectedIndex = 0;
+				} else if (Math.floor(clickY / 48) + pageStack [pageStack.length - 1] * 9 < usedDirectory.contents.length) {
+					selectedIndex = Math.floor(clickY / 48) + pageStack[pageStack.length - 1] * 9;
+					document.getElementById ("debug").innerHTML = usedDirectory.contents [selectedIndex].data;
+				}
+			} else {
+				if (clickX < 48) {
+					if (workingDirectory.length > 1) {
+						workingDirectory.pop();
+						pageStack.pop();
+						selectedIndex = 0;
+					}
+				} else if (clickX < 96) {
+					if (pageStack[pageStack.length - 1] >= 1) {
+						pageStack[pageStack.length - 1] --;
+						selectedIndex = pageStack[pageStack.length - 1] * 9;
+					}
+				} else if (clickX < 144) {
+					if (pageStack[pageStack.length - 1] * 9 + 9 < usedDirectory.contents.length) {
+						pageStack[pageStack.length - 1] ++;
+						selectedIndex = pageStack[pageStack.length - 1] * 9;
+					}
+				} else {
+					filePath = "";
+					for (var i = 0; i < workingDirectory.length; i++) {
+						filePath += workingDirectory[i].name + "/";
+					}
+					if (usedDirectory.contents.length > 0) {
+						filePath += usedDirectory.contents[selectedIndex].name + "/";
+					}
+					prompt("Filepath of this file:", filePath);
+				}
+			}
+		}
+		function doKeypressFileGUI(keyID) {
+			//Handles keypress events for the display canvas when the file viewer is selected
+				usedDirectory = workingDirectory[workingDirectory.length - 1];
+				if (keyID == 0x8) {
+					if (confirm("Are you sure you want to delete this file")) {
+						for (var i = selectedIndex; i < usedDirectory.contents.length - 1; i++) {
+							if (i + 2 <= usedDirectory.contents.length) {
+								usedDirectory.contents[i] = usedDirectory.contents[i + 1];
+							}
+						}
+						if (usedDirectory.contents.length > 0) {
+							usedDirectory.contents.pop();
+						}
+						if (selectedIndex > usedDirectory.contents.length - 1) {
+							selectedIndex--;
+						}
+					}
+					keys_pressed[8] = 0;
+				}
+				if (keyID == 0x52) {
+					var usedName = prompt("Please enter a new name for this file", usedDirectory.contents[selectedIndex].name);
+					if (usedName != undefined) {
+						usedDirectory.contents[selectedIndex].name = usedName;
+					}
+				}
+				if (keyID == 0x4E) {
+					var usedName = prompt("Please enter a name for this new folder", "");
+					if (usedName != undefined && getFileByName(usedName, usedDirectory) == undefined) {
+						usedDirectory.contents.push(new GameFolder(usedName));
+					}
+				}
+				storage.setItem ("project", buildFolder (project));
+				buildFileFrame();
+			}
+		//Audio editor functions
+		function drawAudioGUI () {
+			//Draws the GUI for the audio editor
+			displayContext.textBaseline = "top";
+			displayContext.font = "16px Courrier"
+			clearImageBuffer ();
+			var usedColor = 0x7FFF;
+			for (var i = viewedPage * 19; i < workingChanges [0].length && i < viewedPage * 19 + 19; i ++) {
+				for (var c = 0; c < 3; c ++) {
+					for (var j = 0; j < 4; j ++) {
+						if (workingChanges [c][i][j] == -1) {
+							usedColor = 0x6318;
+						}
+					}
+				}
+				for (var c = 0; c < 3; c ++) {
+					if (workingChanges [c][i][selectedNote] != -1) {
+						switch (selectedNote) {
+							case 0:
+								usedColor = 0x7DEF;
+								break;
+							case 1:
+								usedColor = 0x3EEF;
+								break;
+							case 2:
+								usedColor = 0x3DFF;
+								break;
+							case 3:
+								usedColor = 0x7FEF;
+								break;
+						}
+					}
+				}
+				if (selectedIcon >= 1 && selectedIcon < 3) {
+					for (var c = 0; c < 4; c ++) {
+						if (workingChanges [selectedIcon - 1][i][c] != -1) {
+							usedColor = usedColor & 0x4210;
+						}
+					}
+				} else if (selectedIcon >= 1) {
+					for (var c = 0; c < 4; c ++) {
+						if (workingChanges [2][i][c] == selectedIcon - 3) {
+							usedColor = usedColor & 0x4210;
+						}
+					}
+				}
+				drawRectangle (i * 32 + 32, 0, 32, 480, usedColor);
+			}
+			for (i = viewedPage * 19; i < workingNotes.length && i < viewedPage * 19 + 19; i ++) {
+				for (var c = 0; c < numChannels; c ++) {
+          			var usedColor = 0x0000;
+					switch (c) {
+						case 0:
+              				usedColor = 0x7C00;
+							break;
+						case 1:
+           					usedColor = 0x03E0;
+							break;
+						case 2:
+              				usedColor = 0x001F;
+							break; 
+						case 3:
+              				usedColor = 0x7FE0;
+							break;
+					}
+        			if (workingNotes [i][c] != 0) {
+        				var notePos = workingNotes [i][c];
+        			    if (notePos >= workingOctave * 12 + 79 && notePos < workingOctave * 12 + 103) {
+        	    			drawRectangle ((i - viewedPage * 19) * 32 + 33, 480 - ((notePos - 79) * 20 - workingOctave * 240) - 19, 31, 19, usedColor);
+        				}
+    				}
+				}
+			}
+			for (var i = 20; i < 480; i += 20) {
+				drawHLine (i);
+			}
+			drawVLine (32);
+			for (var i = 32; i < 640; i += 32) {
+				drawVLine (i);
+			}
+			updateCanvas ();
+			for (var i = 0; i <= 24; i ++) {
+				displayContext.fillText (noteNames [i % 12], 4, i * 20 + 2);
+			}
+		}
+		function doClickAudioGUI (clickX, clickY) {
+			//Handles click events for the display canvas when the audio editor is selected
+			if (selectedIcon == 0) {
+				if (Math.floor (clickX / 32) - 1 + viewedPage * 19 >= workingNotes.length) {
+					for (var i = workingNotes.length; i <= Math.floor (clickX / 32) - 1 + viewedPage * 19; i ++) {
+						workingNotes [i] = [0, 0, 0, 0];
+					}
+				}
+				if (workingNotes [Math.floor (clickX / 32) - 1 + viewedPage * 19][selectedNote] == Math.floor ((480 - clickY) / 20) + workingOctave * 12 + 79) {
+					workingNotes [Math.floor (clickX / 32) - 1 + viewedPage * 19][selectedNote] = 0;
+				} else {
+					workingNotes [Math.floor (clickX / 32) - 1 + viewedPage * 19][selectedNote] = Math.floor ((480 - clickY) / 20) + workingOctave * 12 + 79;
+				}
+				workingAudio = [];
+				workingAudio.push (0x04);
+				workingAudio.push (0x01);
+				for (var i = 0; i < 32; i ++) {
+					workingAudio.push (0xFF);
+				}
+				for (var i = 0; i < 32; i ++) {
+					workingAudio.push (0x00);
+				}
+				workingAudio.push (0x00);
+				workingAudio.push (0x7F);
+				if (clickY <= 240) {
+					workingAudio.push (0xC0 + workingOctave + 1);
+				} else {
+					workingAudio.push (0xC0 + workingOctave);
+				}
+				workingAudio.push (Math.floor ((((480 - clickY) / 20) % 0xC) << 4) + 0xF);
+				workingAudio.push (0xF0);
+				psd (false, true);
+			}
+		}
+			//Palette editor functions
+		function toColorCode(RGBArray) {
+			//Returns a 15-bit RGB color code from an 3-element RGB array with 5 bits per element
+			return (RGBArray[0] << 10) + (RGBArray[1] << 5) + RGBArray[2];
+		}
+		function fromColorCode(colorCode) {
+			//Converts a 15-bit RGB color code to a 3-element RGB array with 5 bits per element
+			return [(colorCode & 0x7C00) >> 10, (colorCode & 0x3E0) >> 5, colorCode & 0x1F];
+		}
+		function drawWaveformGUI() {
+			//Draws the waveform GUI (Needs work)
+			displayContext.fillStyle = "#FFFFFF";
+			displayContext.fillRect(0, 0, 640, 480);
+			displayContext.strokeStyle = "#000000";
+			displayContext.beginPath();
+			displayContext.moveTo(0, waveformDataArray[63]);
+			for (var i = 0; i < 64; i++) {
+				displayContext.lineTo(i * 10 + 10, waveformDataArray[i]);
+			}
+			displayContext.lineTo(640, waveformDataArray[0]);
+			displayContext.stroke();
+		}
+		function doClickWaveformGUI(clickX, clickY) {
+			//Handles click events for the display canvas when the waveform editor tool is selected
+		}
+		function drawPaletteGUI() {
+			//Draws the palette editor GUI
+			clearImageBuffer();
+			var usedRGBArray = [];
+			var invertedRGBArray = [];
+			for (var i = 0; i < 3; i++) {
+				for (var c = 0; c < 32; c++) {
+					if (adjustColors) {
+						usedRGBArray = fromColorCode(workingPalette[workingColor]);
+					} else {
+						usedRGBArray = [0, 0, 0];
+					}
+					usedRGBArray[i] = c;
+					drawRectangle(c * 20, i * 80, 20, 80, toColorCode(usedRGBArray));
+					updateCanvas();
+				}
+				if (adjustColors) {
+					usedRGBArray = fromColorCode(workingPalette[workingColor]);
+				} else {
+					usedRGBArray = [0, 0, 0];
+					usedRGBArray[i] = fromColorCode(workingPalette[workingColor])[i];
+				}
+				invertedRGBArray[0] = usedRGBArray[0] ^ 0x1F;
+				invertedRGBArray[1] = usedRGBArray[1] ^ 0x1F;
+				invertedRGBArray[2] = usedRGBArray[2] ^ 0x1F;
+				drawOutline(usedRGBArray[i] * 20, i * 80, 20, 80, toColorCode(invertedRGBArray));
+			}
+			for (var i = 0; i < 16; i++) {
+				drawRectangle((i % 4) * 160, Math.floor(i / 4) * 60 + 240, 160, 60, workingPalette[i]);
+			}
+			usedRGBArray = fromColorCode(workingPalette[workingColor]);
+			usedRGBArray[0] ^= 0x1F;
+			usedRGBArray[1] ^= 0x1F;
+			usedRGBArray[2] ^= 0x1F;
+			drawOutline((workingColor % 4) * 160, Math.floor(workingColor / 4) * 60 + 240, 160, 60, toColorCode(usedRGBArray));
+			updateCanvas();
+		}
+		function doClickPaletteGUI(clickX, clickY) {
+			//Handles click events for the display canvas when the palette tool is selected
+			if (clickY < 240) {
+				var usedRGBArray = fromColorCode(workingPalette[workingColor]);
+				usedRGBArray[Math.floor(clickY / 80)] = Math.floor(clickX / 20);
+				workingPalette[workingColor] = toColorCode(usedRGBArray);
+			}
+			if (clickY >= 240) {
+				workingColor = Math.floor((clickY - 240) / 60) * 4 + Math.floor(clickX / 160);
+			}
+		}
+		function encodePalette(toEncode) {
+			//Encodes a palette into a hexadecimal string
+				var colorData = "";
+				var paletteData = "";
+				for (var i = 0; i < 16; i++) {
+					colorData = toEncode[i].toString(16).toUpperCase();
+					while (colorData.length < 4) {
+						colorData = "0" + colorData;
+					}
+					paletteData += colorData;
+				}
+				return paletteData;
+			}
+			//Sprite editor functions
+		function drawImageData() {
+			//Draws the image data from the sprite editor to the display canvas buffer
+			clearImageBuffer();
+			for (var i = 0; i < imageSize; i++) {
+				for (var c = 0; c < imageSize; c++) {
+					if (imageDataArray[spriteSize + spriteType][i * imageSize + c] > 0) {
+						drawRectangle(c * zoom, i * zoom, zoom, zoom, selectedPalette[imageDataArray[spriteSize + spriteType][i * imageSize + c] & 0xF]);
+					} else {
+						if ((c + i) & 1 == 1) {
+							backColor = 0x77BD;
+						} else {
+							backColor = 0xFFFF;
+						}
+						drawRectangle(c * zoom, i * zoom, zoom, zoom, backColor);
+					}
+				}
+			}
+		}
+		function encodeSpriteBinary(spriteData) {
+			//Encodes a binary format sprite to a hexadecimal string
+			var usedChar = 0;
+			var spriteString = "";
+			for (var j = 0; j < spriteData.length; j++) {
+				if (spriteData[j] == 16) {
+					usedChar += 8 >> (j % 4)
+				}
+				if (j % 4 == 3) {
+					spriteString += usedChar.toString(16).toUpperCase();
+					usedChar = 0;
+				}
+			}
+			return spriteString;
+		}
+		function encodeSpriteMpalette(spriteData) {
+			//Encodes a master palette format sprite to a hexadecimal string
+			var spriteString = "";
+			for (var j = 0; j < spriteData.length; j++) {
+				spriteString += spriteData[j].toString(16).toUpperCase();
+			}
+			return spriteString;
+		}
+		function decodeSpriteBinary(spriteData) {
+			//Decodes a hexadecimal string into an array containing the binary sprite data for the sprite editor
+			var spriteArray = [];
+			for (var j = 0; j < spriteData.length; j++) {
+				var hexChar = fromHexChar(spriteData.charAt(j));
+				for (var k = 0; k < 4; k++) {
+					if ((hexChar & (8 >> k)) == (8 >> k)) {
+						spriteArray.push(16);
+					} else {
+						spriteArray.push(0);
+					}
+				}
+			}
+			return spriteArray;
+		}
+		function decodeSpriteMpalette(spriteData) {
+			//Decodes a hexadecimal string into an array containing the master palette sprite data for the sprite editor
+			var spriteArray = [];
+			for (var j = 0; j < spriteData.length; j++) {
+				spriteArray.push(fromHexChar(spriteData.charAt(j)));
+			}
+			return spriteArray;
+		}
+		function decodeSpriteNES(spriteData) {
+			//Decodes a hexadecimal string in NES sprite format to an array containing the cooresponding master palette sprite data for the sprite editor
+			var spriteArray = [];
+			for (var j = 0; j < 32; j++) {
+				for (var k = 0; k < 2; k++) {
+					spriteArray.push((fromHexChar(spriteData.charAt(j + 20)) & (0xC >> (k * 2))) >> ((1 - k) * 2));
+				}
+			}
+			return spriteArray;
+		}
+		function importPalette(paletteData) {
+			//Imports a palette for use in the sprite editor from the given palette data
+			var tempArray = []
+			for (var i = 0; i < 16; i++) {
+				tempArray.push(fromHexString(paletteData.substr(i * 4, 4)));
+			}
+			return tempArray;
+		}
+		function fromHexChar(hexChar) {
+				//Returns the real value from a 1-character length hexadecimal string
+				var hexCode = hexChar.charCodeAt(0);
+				if (hexCode >= 0x30 && hexCode <= 0x39) {
+					return hexCode - 0x30;
+				} else if (hexCode >= 0x41 && hexCode <= 0x46) {
+					return hexCode - 0x37;
+				} else {
+					return undefined;
+				}
+				return hexCode;
+			}
+			//Compiler functions
+		function fromHexString(hexString) {
+			//Converts a hexadecimal string to a real value
+			var multiplier = 1;
+			var decimalNumber = 0;
+			for (var i = hexString.length - 1; i >= 0; i--) {
+				if (hexString.charCodeAt(i) >= 0x30 && hexString.charCodeAt(i) <= 0x39) {
+					decimalNumber += (hexString.charCodeAt(i) - 0x30) * multiplier;
+				} else if (hexString.charCodeAt(i) >= 0x41 && hexString.charCodeAt(i) <= 0x46) {
+					decimalNumber += (hexString.charCodeAt(i) - 0x37) * multiplier;
+				}
+				multiplier *= 16;
+			}
+			return decimalNumber;
+		}
+		function getOpcode(opcodeString) {
+			//Returns the opcode value from a string containing the name of the opcode
+			for (var t = 0; t < 32; t++) {
+				if (compilerFunctions[t] == opcodeString) {
+					return t;
+				}
+			}
+			return undefined;
+		}
+		function compile(codeRaw, parseFiles) {
+			//Compiles assembly code into a hexadecimal string
+				if (codeRaw.split("n").length == 1) {
+					var codeParsed = codeRaw.split(String.fromCharCode (10));
+				} else {
+					var codeParsed = codeRaw.split("n");
+				}
+				var opcode;
+				var args;
+				var argsParsed = [];
+				var argsReal = [];
+				var stringVariables = [];
+				var realVariables = [];
+				var stringConstants = [];
+				var realConstants = [];
+				var stringJumps = [];
+				var realJumps = [];
+				var jumpCount = 0;
+				var varCount = 0;
+				var codePosition = 0;
+				var compilerFlags;
+				var outputString;
+				var compiledCode = "";
+				var flagsBin;
+				var argsStart;
+				var fileName = "";
+				for (var i = 0; i < codeParsed.length; i++) {
+					opcode = codeParsed[i].substr(0, 3);
+					if (opcode.charAt(0) == "@") {
+						stringJumps[jumpCount] = codeParsed[i];
+						realJumps[jumpCount] = codePosition;
+						jumpCount++;
+					} else {
+						codePosition += compilerFunctionLengths[getOpcode(opcode)];
+					}
+				}
+				for (var i = 0; i < codeParsed.length; i++) {
+					//Compile 1 line
+					argsReal = [];
+					opcode = codeParsed[i].substr(0, 3);
+					if (opcode.charAt (0) == "@") {
+					} else if (opcode == "VAR") {
+						if (codeParsed[i].substr (4, 2) == "v:") {
+							var declarationParsed = codeParsed[i].substr(4).split(" ");
+							stringVariables.push (declarationParsed[0]);
+							realVariables.push (fromHexString(declarationParsed[1]));
+						} else if (codeParsed[i].substr (4, 2) == "c:") {
+							var declarationParsed = codeParsed[i].substr(4).split(" ");
+							stringConstants.push (declarationParsed[0]);
+							realConstants.push (fromHexString(declarationParsed[1]));
+						} else {
+							alert ("Error on line " + (i + 1) + ": Invalid variable name");
+						}
+					} else {
+						compilerFlags = "";
+						for (argsStart = 3; codeParsed[i].charAt(argsStart) != "," && argsStart < codeParsed[i].length - 1; argsStart++) {
+							if (codeParsed[i].charAt(codeParsed) != " ") {
+								compilerFlags += codeParsed[i].charAt(argsStart);
+							}
+						}
+						argsStart++;
+						if (codeParsed[i].charAt(argsStart - 1) != ",") {
+							argsStart = 4;
+							compilerFlags = "";
+						}
+						flagsBin = 0;
+						args = codeParsed[i].substr(argsStart);
+						argsParsed = args.split(" ");
+						if (args.length > 0) {
+							for (var c = 0; c < argsParsed.length; c++) {
+								if (opcode == "FLR") {
+									if (parseFiles) {
+										fileName = argsParsed[0].split("/")[1];
+										for (var t = 0; t < project.contents.length; t++) {
+											if (project.contents[t].name == fileName) {
+												argsReal[0] = t;
+											}
+										}
+										for (var t = 0; t < fileFrame.length; t++) {
+											if (fileFrame[t].path == argsParsed[0]) {
+												argsReal[1] = fileFrame[t].byteFrom;
+												argsReal[2] = fileFrame[t].byteTo - argsReal[1];
+												argsReal[3] = fromHexString(argsParsed[1]);
+											}
+										}
+										for (var t = 0; t < fileFrame.length; t++) {
+											if (fileFrame[t].byteFrom >= argsReal[1] && fileFrame[t].byteTo <= argsReal [1] + argsReal [2] && fileFrame[t].path.split("/")[1] == fileName) {
+												if (stringConstants.indexOf ("c:" + fileFrame [t].path) == -1) {
+													stringConstants.push ("c:" + fileFrame [t].path);
+													realConstants.push (fileFrame [t].byteFrom + argsReal [3]);
+												} else {
+													stringConstants [stringConstants.indexOf ("c:" + fileFrame [t].path)] = "c:" + fileFrame [t].path;
+													realConstants [stringConstants.indexOf ("c:" + fileFrame [t].path)] = (fileFrame [t].byteFrom + argsReal [3]);
+												}
+											}
+										}
+									} else {
+										argsReal [0] = 0;
+										argsReal [1] = 0;
+										argsReal [2] = 0;
+										argsReal [3] = 0;
+									}
+								} else if ((argsParsed[c].charCodeAt(0) >= 0x30 && argsParsed[c].charCodeAt(0) <= 0x39) || (argsParsed[c].charCodeAt(0) >= 0x41 && argsParsed[c].charCodeAt(0) <= 0x46)) {
+									argsReal[c] = fromHexString(argsParsed[c]);
+								} else if (argsParsed[c].charAt(0) == "@") {
+									//Need an invalid jump name check here that throws an exception
+									argsReal[c] = realJumps[stringJumps.indexOf(argsParsed[c])];
+								} else if (argsParsed[c].substr(0, 2) == "v:") {
+									//Need an invalid variable name check here that throws an exception
+									argsReal[c] = realVariables[stringVariables.indexOf(argsParsed[c])];
+									if (opcode != "STA" && opcode != "STX") {
+										flagsBin = flagsBin | 4;
+									}
+								} else if (argsParsed[c].substr(0, 2) == "c:") {
+									if (parseFiles) {
+										argsReal[c] = realConstants[stringConstants.indexOf(argsParsed[c])];
+									} else {
+										argsReal[c] = 0;
+									}
+								} else {
+									alert ("Error at line " + (i + 1) + ": Invalid argument");
+								}//GOTTA GO FAST
+							}
+							for (var c = 0; c < compilerFlags.length; c++) {
+								if (compilerFlags.charAt(c) == "$" || compilerFlags.charAt(c) == "~") {
+									flagsBin = flagsBin | 4;
+								}
+								if (compilerFlags.charAt(c) == "-" || compilerFlags.charAt(c) == "L" || compilerFlags.charAt(c) == "m") {
+									flagsBin = flagsBin | 2;
+								}
+								if (compilerFlags.charAt(c) == "x") {
+									flagsBin = flagsBin | 1;
+								}
+							}
+						}
+						outputString = ((getOpcode(opcode) << 3) + flagsBin).toString(16).toUpperCase();
+						if (outputString.length == 1) {
+							outputString = "0" + outputString;
+						}
+						if (outputString.length > 2) {
+							outputString = undefined;
+						} //SANIK SPEEDS
+						compiledCode += outputString;
+						var argumentLength;
+						if (args.length > 0) {
+							for (var c = 0; c < argsReal.length; c++) {
+								outputString = argsReal[c].toString(16).toUpperCase();
+								argumentLength = compilerArgumentLengths[getOpcode(opcode)][c] * 2;
+								if (outputString.length > argumentLength) {
+									//Put error handling code here
+								}
+								while (outputString.length < argumentLength) {
+									outputString = "0" + outputString;
+								}
+								compiledCode += outputString;
+							}
+						}
+					}
+				}
+				return compiledCode;
+			}
+			//Game engine functions
+		function read4bit(pos, isFromRam) {
+			//Reads a 4-bit value from a position either from ram or the workingAudio array
+			if (isFromRam) {
+				var nibblePos = (pos & 0xFFFC) >> 2;
+				var shift = (pos & 0x3) << 2;
+				return (ram[nibblePos + arg1] & (0xF000 >> shift)) >> (12 - shift);
+			} else {
+				if ((pos & 1) == 0) {
+					return (workingAudio [pos >> 1] & 0xF0) >> 4;
+				} else {
+					return workingAudio [pos >> 1] & 0xF;
+				}
+			}
+		}
+		function read8bit(pos) {
+			//Reads an 8 bit value from ram
+			if (pos % 2 == 1) {
+				return ram[pos >> 1] & 0xFF;
+			} else {
+				return ((ram[pos >> 1]) & 0xFF00) >> 8;
+			}
+		}
+		//These functions represent the individual opcodes
+		function end() {
+			if (flag_execFromRam == 0) {
+				exec_pos = -1;
+			} else {
+				exec_pos = backup_pos;
+				flag_execFromRam = 0;
+			};
+		};
+		function lda() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = arg1;
+		};
+		function sta() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			ram[arg1] = accumulator & 0xFFFF;
+		};
+		function ldx() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			x_reg = arg1;
+		};
+		function stx() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg & 0xFFFF;
+			};
+			ram[arg1] = x_reg;
+		};		//Generic wormhole
+		function cmp() { //It's a me, Mar--SU5WQURFI    FR TOAD  IRSBNVV  NIU k9P  TOAD TSBLS  U5HRE9N TOAD STOLE THE STA*REVTVFJPWQ==
+						//It's a luiiiiiiiii  iiiiiiiiii    VE9BR   CBJUyBF  VklM     iiiiig     tiTOAD KIDNAPPED THE PRINCESS
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			if (accumulator == arg1) {
+				result_cmp = 1;
+			};
+			if (accumulator > arg1) {
+				result_cmp = 2;
+			};
+			if (accumulator < arg1) {
+				result_cmp = 3;
+			};
+		};
+		function beq() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (result_cmp == 1) {
+				if (flag_relative == 1) {
+					if (flag_negative == 1) {
+						exec_pos -= arg1;
+					} else {
+						exec_pos += arg1;
+					};
+				} else {
+					exec_pos = arg1;
+				};
+				exec_pos = exec_pos & 65535;
+			};
+		};
+		function bne() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (result_cmp > 1) {
+				if (flag_relative == 1) {
+					if (flag_negative == 1) {
+						exec_pos -= arg1;
+					} else {
+						exec_pos += arg1;
+					};
+				} else {
+					exec_pos = arg1;
+				};
+				exec_pos = exec_pos & 65535;
+			};
+		};
+		function bgt() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (result_cmp == 2) {
+				if (flag_relative == 1) {
+					if (flag_negative == 1) {
+						exec_pos -= arg1;
+					} else {
+						exec_pos += arg1;
+					};
+				} else {
+					exec_pos = arg1;
+				};
+				exec_pos = exec_pos & 65535;
+			};
+		};
+		function blt() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (result_cmp == 3) {
+				if (flag_relative == 1) {
+					if (flag_negative == 1) {
+						exec_pos -= arg1;
+					} else {
+						exec_pos += arg1;
+					};
+				} else {
+					exec_pos = arg1;
+				};
+				exec_pos = exec_pos & 65535;
+			};
+		};
+		function add() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = (accumulator + arg1) & 0xFFFF;
+		};
+		function sbc() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = (accumulator - arg1) & 0xFFFF;
+		};
+		function mlt() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = (accumulator * arg1) & 0xFFFF;
+		}
+		function div() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = (floor(accumulator / arg1)) & 0xFFFF;
+		}
+		function mod() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = (accumulator % arg1) & 0xFFFF;
+		}
+		function and() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = accumulator & arg1;
+		};
+		function ior() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = accumulator | arg1;
+		};
+		function xor() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = accumulator ^ arg1;
+		};
+		function bsl() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = accumulator << arg1;
+		};
+		function bsr() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			accumulator = accumulator >> arg1;
+		};
+		function ssp() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				arg1 = ram[arg1];
+			};
+			sprite_pointer = arg1;
+		};
+		function dsp() {
+			for (i = 0; i < 32; i += 1) {
+				sprite[i] = ram[65503 + i];
+			};
+			if (sprtype == 0) {
+				sprite_bin();
+			};
+			if (sprtype == 1) {
+				sprite_mpalette();
+			};
+		};
+		function keyget() {
+			if (keys_pressed[arg1] == 1) {
+				accumulator = 1;
+			} else {
+				accumulator = 0;
+			};
+		};
+		function jmp() {
+			if (flag_relativex == 1) {
+				arg1 = arg1 + x_reg;
+			};
+			if (flag_relative == 1) {
+				if (flag_negative == 1) {
+					exec_pos -= arg1;
+				} else {
+					exec_pos += arg1;
+				};
+			} else {
+				exec_pos = arg1;
+			};
+		};
+		function flr() {
+			while (arg3 != 0) {
+				ram[arg4 + (arg3 >> 1) - 1] = file_array[arg1][arg2 + arg3 - 1];
+				if (arg3 > 1) {
+					ram[arg4 + (arg3 >> 1) - 1] += file_array[arg1][arg2 + arg3 - 2] << 8;
+					arg3 -= 1;
+				}
+				arg3 -= 1;
+			}
+		};
+		function flw() {
+			while (arg3 != 0) {
+				file_array[arg1][(arg2 + arg3 - 1) * 2] = (ram[arg4 + arg3 - 1] & 0xFF00) >> 8;
+				file_array[arg1][(arg2 + arg3 - 1) * 2 + 1] = (ram[arg4 + arg3 - 1] & 0xFF);
+				arg3 -= 1;
+			};
+		};
+		function exe() {
+			if (flag_execFromRam == 0) {
+				backup_pos = exec_pos;
+				absolute_pos = arg1;
+				flag_execFromRam = 1;
+				exec_pos = flag_negative;
+			};
+		};
+		function tax() {
+			x_reg = accumulator;
+		};
+		function txa() {
+			accumulator = x_reg;
+		};
+		function psd(fromRam, playSound) {
+			//Don't mind this, just over-complicated code for playing audio
+			var effectType = 0;
+			var effectCounter = 0;
+			notes = [];
+			volumeArray = [];
+			waveType = [];
+			octave = [4, 4, 4, 4];
+			volumeList = [127, 127, 127, 127];
+			instrumentList = [0, 0];
+			if (fromRam) {
+				tempo = read4bit(0, fromRam) * 4 + ((read4bit(1, fromRam) & 0xC) >> 2);
+				duration = Math.round(44100 / tempo);
+				channels = (read4bit(1, fromRam) & 0x3) + 1;
+				instruments = read8bit(arg1 * 2 + 1);
+			} else {
+				//For playing a sound outside the game engine
+				tempo = (workingAudio [0] & 0xFC) >> 2;
+				duration = Math.round(44100 / tempo);
+				channels = (workingAudio [0] & 0x3) + 1;
+				instruments = workingAudio [1];
+			}
+			waveform = [];
+			for (var i = 0; i < instruments; i++) {
+				waveform[i] = [];
+				for (var c = 0; c < 64; c++) {
+					if (fromRam) {
+						waveform[i][c] = read8bit(arg1 * 2 + i * 64 + c + 2);
+					} else {
+						//For playing a sound outside the game engine
+						waveform[i][c] = workingAudio [i * 64 + c + 2];
+					}
+				}
+			}
+			for (var i = 0; i < channels; i++) {
+				if (fromRam) {
+					instrumentList[i] = read8bit(arg1 * 2 + instruments * 64 + i * 2 + 2);
+					volumeList[i] = read8bit(arg1 * 2 + instruments * 64 + i * 2 + 3);
+				} else {
+					//For playing a sound outside the game engine
+					instrumentList[i] = workingAudio [instruments * 64 + i * 2 + 2];
+					volumeList[i] = workingAudio [instruments * 64 + i * 2 + 3];
+				}
+			}
+			writePos = 0;
+			readPos = (instruments * 64 + channels * 2 + 2) * 2;
+			endFlag = 0;
+			channelMod = 0;
+			while (endFlag == 0) {
+				endFlag = 0;
+				nibble = read4bit(readPos, fromRam);
+				if (nibble < 12) {
+					semitone = nibble;
+					notes[writePos] = semitone + octave[channelMod] * 12 + 79;
+					volumeArray[writePos] = volumeList[channelMod];
+					waveType[writePos] = instrumentList[channelMod];
+					effectArray[writePos] = effectList[channelMod];
+					tempoArray[writePos] = tempo;
+					writePos++;
+					channelMod = (channelMod + 1) % channels;
+				}
+				if (nibble == 12) {
+					readPos++;
+					octave[channelMod] = read4bit(readPos, fromRam);
+				}
+				if (nibble == 13) {
+					readPos++;
+					volumeList[channelMod] = read4bit(readPos, fromRam) * 8 - 1;
+					if (volumeList[channelMod] < 0) {
+						volumeList[channelMod] = 0;
+					}
+				}
+				if (nibble == 14) {
+					readPos++;
+					instrumentList[channelMod] = read4bit(readPos, fromRam);
+				}
+				if (nibble == 15) {
+					readPos++;
+					effectId = read4bit(readPos, fromRam);
+					if (effectId < 15 && effectId > 4) {
+						effectList[channelMod] = (read4bit(readPos, fromRam) << 8) + (read4bit(readPos + 1, fromRam) << 4) + (read4bit(readPos + 2, fromRam));
+						readPos += 2;
+					}
+					if (effectId == 1) {
+						semitone = nibble;
+						notes[writePos] = 0;
+						volumeArray[writePos] = volumeList[channelMod];
+						waveType[writePos] = instrumentList[channelMod];
+						effectArray[writePos] = effectList[channelMod];
+						tempoArray[writePos] = tempo;
+						writePos++;
+						channelMod = (channelMod + 1) % channels;
+					}
+					if (effectId == 2) {
+						tempo = (read4bit(readPos + 1, fromRam) << 4) + read4bit(readPos + 2, fromRam);
+						readPos += 2;
+					}
+					if (effectId == 3) {
+						volumeList[channelMod] = (read4bit(readPos + 1, fromRam) << 4) + read4bit(readPos + 2, fromRam);
+						readPos += 2;
+					}
+					if (effectId == 4) {
+						instrumentList[channelMod] = (read4bit(readPos + 1, fromRam) << 4) + read4bit(readPos + 2, fromRam);
+						readPos += 2;
+					}
+					if (effectId == 9) {
+						effectList[channelMod] = 2304;
+					}
+					if (effectId == 15) {
+						endFlag = 1;
+					}
+				}
+				readPos++;
+			}
+			if (playSound == false) {
+				return notes;
+			}
+			wavedata = "";
+			channelSync = 0;
+			for (var n = 0; n < notes.length; n += channels) {
+				tempo = tempoArray[n];
+				note0 = notes[n];
+				note1 = notes[n + 1];
+				note2 = notes[n + 2];
+				note3 = notes[n + 3];
+				if (note0 == 0) {
+					note0 = 127;
+				}
+				if (note1 == 0) {
+					note1 = 127;
+				}
+				if (note2 == 0) {
+					note2 = 127;
+				}
+				if (note3 == 0) {
+					note3 = 127;
+				}
+				duration = Math.round(44100 / tempo);
+				wavelengtharray[0] = Math.round(100 * Math.pow(1.05946309436, (254 - note0) - 127));
+				wavelengtharray[1] = Math.round(100 * Math.pow(1.05946309436, (254 - note1) - 127));
+				wavelengtharray[2] = Math.round(100 * Math.pow(1.05946309436, (254 - note2) - 127));
+				wavelengtharray[3] = Math.round(100 * Math.pow(1.05946309436, (254 - note3) - 127));
+				effectCounter = 0;
+				for (var i = 0; i < duration * channels; i += 3) {
+					for (var c = 0; c != 3; c++) {
+						volume = volumeArray[channelSync + n];
+						wavelength = wavelengtharray[channelSync];
+						usedWavelength = wavelength;
+						usedVolume = volume;
+						effectData = effectArray[channelSync + n];
+						effectType = (effectData & 0xF00) >> 8;
+						effectPrm1 = (effectData & 0xF0) >> 4;
+						effectPrm2 = (effectData & 0xF);
+						if (effectType != 0) {
+							if (effectType == 5) {
+								if (volume > 0) {
+									if (effectCounter < duration * channels / effectPrm2) {
+										usedVolume = volume - (volume - effectPrm1 * 8 + 1) / (duration * channels / effectPrm2) * effectCounter;
+									} else {
+										usedVolume = effectPrm1 * 8 - 1;
+									}
+								}
+							}
+							if (effectType == 6) {
+								if (notes[n + channelSync] != 0) {
+									effectPrm1 = 15 - effectPrm1;
+									if (effectPrm1 <= 7) {
+										effectPrm1 -= 8;
+										powmod = 1;
+									} else {
+										effectPrm1 -= 7;
+										powmod = -1;
+									}
+									if (effectCounter < duration * channels / effectPrm2) {
+										usedWavelength = wavelength * Math.pow(1.05946309436, effectPrm1 / (duration * channels / effectPrm2 * 2) * effectCounter);
+									} else {
+										usedWavelength = wavelength * Math.pow(1.05946309436, effectPrm1);
+									}
+								}
+							}
+							if (effectType == 7) {
+								if (notes[n + channelSync] != 0) {
+									if (Math.floor(effectCounter % (duration / 64)) == 0) {
+										waveOffset = waveTo;
+										waveTo = volume + (waveform[(effectPrm1 << 4) * effectPrm2][Math.floor(effectCounter / duration * 64)] - 128);;
+										waveSlope = Math.abs((waveOffset - waveTo)) / (duration / 64);
+									}
+									usedVolume = waveSlope * (effectCounter % (duration / 64)) + waveOffset;
+								}
+							}
+							if (effectType == 8) {
+								if (notes[n + channelSync] != 0) {
+									if (Math.floor(effectCounter % (duration / 64)) == 0) {
+										waveOffset = waveTo;
+										waveTo = wavelength * Math.pow(1.05946309436, (-1 * waveform[(effectPrm1 << 4) * effectPrm2][Math.floor((effectCounter + duration / 64) / duration * 64 - 1)] - 128) / 128);
+										waveSlope = Math.abs((waveOffset - waveTo)) / (duration / 64);
+									}
+									usedWavelength = waveSlope * (effectCounter % (duration / 64)) + waveOffset;
+								}
+							}
+						}
+						wavelengthtimes2 = wavelength * 2;
+						if (usedVolume > 127) {
+							usedVolume = 127;
+						}
+						if (usedVolume < 0) {
+							usedVolume = 0;
+						}
+						if (effectType != 9) {
+							if (notes[n + channelSync] != 0) {
+								toDecodeArray[c] = 127 + Math.floor((waveform[instrumentList[channelSync]][(Math.floor(Math.floor((i + c + p) / channels) * (64 / usedWavelength))) % 64] - 127) * (1 / 127 * usedVolume));
+							}
+						} else {
+							toDecodeArray[c] = Math.floor(Math.random() * usedVolume);
+						}
+						effectCounter++;
+						channelSync = (channelSync + 1) % channels;
+					}
+					base64String = "";
+					base64String += base64Key[(toDecodeArray[0] & 0xFC) >> 2];
+					base64String += base64Key[((toDecodeArray[0] & 0x03) << 4) + ((toDecodeArray[1] & 0xF0) >> 4)];
+					base64String += base64Key[((toDecodeArray[1] & 0x0F) << 2) + ((toDecodeArray[2] & 0xC0) >> 6)];
+					base64String += base64Key[toDecodeArray[2] & 0x3F];
+					wavedata += base64String;
+				}
+				p = (i + p + channels) % wavelengthtimes2;
+			}
+			if (flag_negative == 0) {
+				if (channels == 1) {
+					effectsAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAEARKwAAESsAAABAAgAZGF0YbDfyQAA" + wavedata;
+				}
+				if (channels == 2) {
+					effectsAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAIARKwAAIiFAQACAAgAZGF0YbDfyQAA" + wavedata;
+				}
+				if (channels == 3) {
+					effectsAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAMARKwAAMwEAgADAAgAZGF0YbDfyQAA" + wavedata;
+				}
+				if (channels == 4) {
+					effectsAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAQARKwAABCxAgAEAAgAZGF0YbDfyQAA" + wavedata;
+				}
+			} //Zelda: I'm surprised you actually looked in the source code. Congrats on finding this easter egg!
+			else {
+				if (channels == 1) {
+					musicAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAEARKwAAESsAAABAAgAZGF0YbDfyQAA" + wavedata;
+				}
+				if (channels == 2) {
+					musicAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAIARKwAAIhYAQACAAgAZGF0YbDfyQAA" + wavedata;
+				};
+				if (channels == 3) {
+					musicAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAMARKwAAMwEAgADAAgAZGF0YbDfyQAA" + wavedata;
+				};
+				if (channels == 4) {
+					musicAudio.src = "data:audio/wav;base64,UklGRnSsAABXQVZFZm10IBAAAAABAAQARKwAABCxAgAEAAgAZGF0YbDfyQAA" + wavedata;
+				};
+			};
+			return undefined;
+		};
+		function rpc() {
+			accumulator = exec_pos - 1;
+		};
+		function sprite_bin() {
+			//Draws a binary sprite
+			var extra = 0;
+			width = sprsize * 8 + 8;
+			for (i = 0; i < width; i += 1) {
+				val = 128;
+				extra = 0;
+				for (c = 0; c < width; c += 1) {
+					if ((read8bit(sprite_pointer * 2 + i * (sprsize + 1) + extra) & val) == val) {
+						drawRectangle((res * c + arg2) * 2, (res * i + arg3) * 2, res * 2, res * 2, ram[mpalettePointer]);
+					};
+					val = val >> 1;
+					if (val == 0) {
+						val = 128;
+						extra++;
+					}
+				};
+			};
+		};
+		function sprite_mpalette() {
+			//Draws a master palette sprite
+			var extra;
+			var shiftval;
+			var colorptr;
+			width = sprsize * 8 + 8;
+			for (i = 0; i < width; i += 1) {
+				val = 240;
+				shiftval = 4;
+				extra = 0;
+				for (c = 0; c < width; c += 1) {
+					if ((read8bit(sprite_pointer * 2 + i * (sprsize + 1) * 4 + extra) & val) != 0) {
+						colorptr = (read8bit(sprite_pointer * 2 + i * (sprsize + 1) * 4 + extra) & val) >> shiftval;
+						drawRectangle((res * c + arg2) * 2, (res * i + arg3) * 2, res * 2, res * 2, ram[mpalettePointer + colorptr]);
+					}
+					val = val >> 4;
+					shiftval -= 4;
+					if (val == 0) {
+						val = 240;
+						extra++;
+					}
+					if (shiftval == -4) {
+						shiftval = 4;
+					}
+				};
+			};
+		};
+		function cycle() {
+			//Function for 1 frame of game
+			//Should use a switch statement or else it's kinda lame
+			//But my rhymes are also kinda lame
+			while (exec_pos != -1) {
+				usedByte = main(exec_pos);
+				opcode_id = (usedByte & 248) >> 3;
+				flag_relative = (usedByte & 4) >> 2;
+				flag_negative = (usedByte & 2) >> 1;
+				flag_relativex = usedByte & 1;
+				if (opcode_id == 0) {
+					end();
+				};
+				if (opcode_id == 1) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					lda();
+				};
+				if (opcode_id == 2) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					sta();
+				};
+				if (opcode_id == 3) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					ldx();
+				};
+				if (opcode_id == 4) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					stx();
+				};
+				if (opcode_id == 5) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					cmp();
+				};
+				if (opcode_id == 6) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					beq();
+				};
+				if (opcode_id == 7) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					bne();
+				};
+				if (opcode_id == 8) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					bgt();
+				};
+				if (opcode_id == 9) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					blt();
+				};
+				if (opcode_id == 10) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					add();
+				};
+				if (opcode_id == 11) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					sbc();
+				};
+				if (opcode_id == 12) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					mlt();
+				};
+				if (opcode_id == 13) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					div();
+				};
+				if (opcode_id == 14) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					mod();
+				};
+				if (opcode_id == 15) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					and();
+				};
+				if (opcode_id == 16) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					ior();
+				};
+				if (opcode_id == 17) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					xor();
+				};
+				if (opcode_id == 18) {
+					arg1 = main(exec_pos + 1);
+					exec_pos += 2;
+					bsl();
+				};
+				if (opcode_id == 19) {
+					arg1 = main(exec_pos + 1);
+					exec_pos += 2;
+					bsr();
+				};
+				if (opcode_id == 20) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					ssp();
+				};
+				if (opcode_id == 21) {
+					sprtype = (main(exec_pos + 1) & 128) >> 7;
+					sprsize = (main(exec_pos + 1) & 64) >> 6;
+					res = (main(exec_pos + 1) & 63) + 1;
+					arg2 = main((exec_pos + 2) << 8) + main(exec_pos + 3);
+					arg3 = main((exec_pos + 4) << 8) + main(exec_pos + 5);
+					if (flag_relative == 1) {
+						arg2 = ram[arg2];
+						arg3 = ram[arg3];
+					};
+					exec_pos += 6;
+					dsp();
+				};
+				if (opcode_id == 22) {
+					mpalettePointer = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+				};
+				if (opcode_id == 23) {
+					arg1 = main(exec_pos + 1);
+					exec_pos += 2;
+					keyget();
+				};
+				if (opcode_id == 24) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					jmp();
+				};
+				if (opcode_id == 25) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					arg2 = (main(exec_pos + 3) << 8) + (main(exec_pos + 4));
+					arg3 = (main(exec_pos + 5) << 8) + (main(exec_pos + 6));
+					arg4 = (main(exec_pos + 7) << 8) + (main(exec_pos + 8));
+					exec_pos += 9;
+					flr();
+				};
+				if (opcode_id == 26) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					arg2 = (main(exec_pos + 3) << 8) + (main(exec_pos + 4));
+					arg3 = (main(exec_pos + 5) << 8) + (main(exec_pos + 6));
+					arg4 = (main(exec_pos + 7) << 8) + (main(exec_pos + 8));
+					exec_pos += 9;
+					flw();
+				};
+				if (opcode_id == 27) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					exe();
+				};
+				if (opcode_id == 28) {
+					exec_pos += 1;
+					tax();
+				};
+				if (opcode_id == 29) {
+					exec_pos += 1;
+					txa();
+				};
+				if (opcode_id == 30) {
+					arg1 = (main(exec_pos + 1) << 8) + (main(exec_pos + 2));
+					exec_pos += 3;
+					psd(true, true);
+				};
+				if (opcode_id == 31) {
+					exec_pos += 1;
+					rpc();
+				};
+				if (flag_execFromRam == 1) {};
+			};
+			cycle_finished = 1;
+		};
+		function importCode(code) {
+			//Please, just read the name!
+			key_pressed = 0;
+			var usedByte = 0;
+			exec_pos = 0;
+			for (i = 0; i < 65536; i += 1) {
+				main_array[i] = 0;
+			};
+			for (i = 0; i < code.length; i += 2) {
+				usedByte = code.charCodeAt(i);
+				if (usedByte > 47 && usedByte < 58) {
+					main_array[i / 2] = (usedByte - 48) * 16;
+				};
+				if (usedByte > 64 && usedByte < 71) {
+					main_array[i / 2] = (usedByte - 55) * 16;
+				};
+				usedByte = code.charCodeAt(i + 1);
+				if (usedByte > 47 && usedByte < 58) {
+					main_array[i / 2] += usedByte - 48;
+				};
+				if (usedByte > 64 && usedByte < 71) {
+					main_array[i / 2] += usedByte - 55;
+					//Herobrine IS here
+				};
+			};
+			for (i = 0; i < 65536; i += 1) {
+				ram[i] = 0;
+			};
+		};
+		//Herobrine was here
+		setInterval(function() {
+			//Here is the main game loop!
+			if (toolSelected == 0) {
+				//main loop
+				if (cycle_finished == 1) {
+					cycle_finished = 0;
+					updateCanvas();
+					clearImageBuffer();
+					cycle();
+					if (exec_pos == -1) {
+						exec_pos = 0;
+					};
+				};
+			}
+		}, 1000 / 30);
+		//I have been lied too. I was promised eighty pages of code. This is a mere 72!
+		//I apologize for the inconvenience.
+		//Also, that's the wrong form of to.
+		//Thats better...
+	</script>
+</body>
+</html>
