@@ -8,4 +8,4 @@ Anyhow, this project includes:
   -An integrated filesystem and navigator that's stored in the browser's cache as a base64 string
   -An import/export tool for transfering filesystem data between systems and/or browsers
   -A tool to actually run the game
-It's really more of a strange IDE than anything. It's all in one HTML file and you can develop an entire (small because local storage is limited to 5Mb) game without leaving the page.
+It's really more of a strange IDE than anything. It's all in one HTML file (icons folder not required) and you can develop an entire (small because local storage is limited to 5Mb) game without leaving the page.
